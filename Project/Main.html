@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #08314d;
+            margin: 0;
+            font-family: 'Scout Condensed Bold';
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+            height: 80px;
+        }
+
+        .headerR6Logo {
+            max-width: 300px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .header-nav {
+            margin-left: 100px;
+            display: flex;
+            gap: 100px;
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            font-size: 35px;
+            color: #e8dddd;
+            font-weight: bold;
+        }
+
+        @font-face {
+            font-family: 'Scout Condensed Bold';
+            src: url('Scout Condensed Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column; /* Изменено на column */
+            align-items: center;
+        }
+
+        .aboutGame {
+            width: 1440px;
+            height: 600px;
+            background: #000;
+            display: flex; /* Добавляем flex-контейнеру */
+            align-items: center; /* Выравниваем элементы по вертикали */
+            justify-content: space-between; /* Распределяем пространство между элементами */
+            padding: 20px; /* Добавляем отступ для разделения текста и картинки */
+        }
+
+        .aboutGame h1 {
+            font-size: 40px;
+            flex: 1;
+            color: #e8dddd;
+        }
+
+        .aboutGame img {
+            max-width: 50%; /* Устанавливаем максимальную ширину для картинки */
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .aboutGame img {
+            transform: scaleX(-1);
+            height: 600px;
+            width: 1400px;
+        }
+
+        .header-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .aboutOperators {
+            display: flex;
+            flex-direction: row; /* Изменено на row */
+            justify-content: space-between; /* Распределяем пространство между элементами */
+            align-items: center;
+            background: url('operatorsBG.png') no-repeat center center fixed; /* Замените 'your-image.jpg' на путь к вашей картинке */
+            background-size: cover; /* Подгоняет картинку под размер контейнера */
+            padding: 20px;
+            color: #fff;
+            }
+
+        .aboutOperators img {
+            max-width: 600px; /* Устанавливаем максимальную ширину для изображений оперативников */
+            height: 800px;
+        }
+
+        .icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .icons img {
+            max-width: 256px; /* Устанавливаем максимальную ширину для иконок */
+            height: auto;
+        }
+
+        .icons h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <img src="R6Logo.png" class="headerR6Logo" alt="R6 Logo">
+        <div class="header-nav">
+            <a href="#">Operators</a>
+            <a href="#">Maps</a>
+            <a href="#">Battle pass</a>
+        </div>
+    </header>
+    <main>
+        <div class="aboutGame">
+            <h1>RAINBOW SIX SIEGE
+                <br>is a first-person tactical shooter where players join elite counter-terrorism and terrorist teams, engaging
+                in intense indoor battles.
+                The game features unique operators with diverse abilities and emphasizes strategy and teamwork.</h1>
+            <img src="aboutgame.png" alt="aboutgame">
+        </div>
+    </main>
+    <div class="aboutOperators"> <!-- Перемещено вне тега main -->
+        <img src="left-operator.png" alt="Left Operator Image"  style="margin-left: -30px;">
+            <div class="icons">
+                <img src="right-icon.png" alt="Icon 2" >
+                <h2>ATTACKERS</h2>
+            </div>
+            <div class="icons">
+                <img src="left_icon.png" alt="Icon 3">
+                <h2>DEFENDERS</h2>
+            </div>
+   
+        <img src="right-operator.png" alt="Right Operator Image">
+    </div>
+</body>
+
+</html>
