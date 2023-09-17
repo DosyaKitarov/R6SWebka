@@ -111,6 +111,7 @@ main {
 }
 
 .maps p{
+    margin-left: 50px;
     font-size: 40px;
     flex: 1;
     color: #e8dddd;
