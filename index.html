@@ -2,64 +2,125 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="imges/r6favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        @font-face {
+        font-family: 'Scout Condensed Bold';
+        src: url('Scout Condensed Bold.otf') format('opentype');
+        font-weight: bold;
+        font-style: normal;
+        }
+        body {
+            font-family: 'Scout Condensed Bold';
+        }
+    </style>
 </head>
 
 <body>
-    <header class="header">
-        <img src="imges/R6logo.png" class="headerR6Logo" alt="R6 Logo">
-        <div class="header-nav">
-            <a href="#">Operators</a>
-            <a href="#">Maps</a>
-            <a href="#">Battle pass</a>
+    <header class="container-fluid bg-dark">
+        <div class="col">
+            <ul class="nav justify-content-left align-items-center">
+                <li class="nav-item ms-3">
+                    <img src="imges/R6logo.png" width="70%" height="auto" alt="R6 Logo">
+                </li>
+                <li class="nav-link ms-1 fs-2">
+                    <a href="#" class="text-light">Operators</a>
+                </li>
+                <li class="nav-link ms-3 fs-2">
+                    <a href="#" class="text-light">Maps</a>
+                </li>
+                <li class="nav-link ms-3 fs-2">
+                    <a href="#" class="text-light">Battle pass</a>
+                </li>
+            </div>   
+            </ul>
         </div>
     </header>
 
     <main>
-        <div class="aboutGame">
-            <h1>RAINBOW SIX SIEGE
-                <br>is a first-person tactical shooter where players join elite counter-terrorism and terrorist teams,
-                engaging
-                in intense indoor battles.
-                The game features unique operators with diverse abilities and emphasizes strategy and teamwork.
-            </h1>
-            <img src="imges/aboutgame.png" alt="aboutgame">
-        </div>
-
-        <div class="aboutOperators">
-            <img src="imges/left-operator.png" alt="Left Operator Image" style="margin-left: -30px;">
-            <div class="icons">
-                <img src="imges/right-icon.png" alt="Icon 2">
-                <h2>ATTACKERS</h2>
+        <div class="container-fluid bg-black ">
+            <div class="row align-items-center ">
+                <div class="col fs-1">
+                    <div class="card border-0 bg-black text-light">
+                        <div class="card-body p-0">
+                           <p class="card-title h1">RAINBOW SIX SIEGE</p>
+                          <p class="card-text">is a first-person tactical shooter where players join elite counter-terrorism and terrorist teams,
+                            engaging
+                            in intense indoor battles.
+                            The game features unique operators with diverse abilities and emphasizes strategy and teamwork.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-0">
+                    <img src="imges/aboutgame.png" width="100%" height="auto" alt="aboutgame">
+                </div>
             </div>
-            <div class="icons">
-                <img src="imges/left_icon.png" alt="Icon 3">
-                <h2>DEFENDERS</h2>
-            </div>
-            <img src="imges/right-operator.png" alt="Right Operator Image">
         </div>
+        <div class="container-fluid text-center" style="background-image: url('imges/operatorsBG.png')">
+            <div class="row">
+                <div class="row mt-4">
+                    <p class="fs-1 text-light">
+                        CHOOSE YOUR MAIN CHARACTER
+                    </p>
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col p-0 ms-lg-5">
+                        <img src="imges/left-operator.png" width="100%" height="auto" alt="Fuze">
+                    </div>
+                    <div class="col fs-1 justify-content-center align-items-center ms-4">
+                        <img src="imges/left-icon.png" width="65%" height="auto" alt="FuzeIcon">
+                        <p class="fs-1 text-light "> ATTACKERS</p>
+                        <img src="imges/right_icon.png" width="65%" height="auto" alt="Warden">
+                        <p class="fs-1 text-light "> DEFENDERS</p>
+                    </div>
+                    <div class="col p-0">
+                        <img src="imges/right-operator.png" width="65%" height="auto" alt="WardenIcon">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <p class="fs-1 text-light">
+                        TRY HUGE ABUNDANCE OF MAPS
+                    </p>
+                </div>
 
-        <div class="maps">
-            <div class="panoram">
-                <img src="imges/border.jpg">
-                <img src="imges/chalet.jpg">
-                <img src="imges/clubhouse.jpg">
-                <img src="imges/coastline.jpg">
-                <img src="imges/emeraldplains.jpg">
+            </div>    
+        </div>
+        
+        <div class="container-fluid" style="background-image: url('imges/operatorsBG.png')">
+
+            <div class="row align-items-center" >
+                <div class="col-3 p-0">
+                    <img src="imges/border.jpg"  width="100%" height="auto">
+                </div>
+                <div class="col-3 p-0">
+                    <img src="imges/chalet.jpg"  width="100%" height="auto">
+                </div>
+                <div class="col-3 p-0">
+                    <img src="imges/clubhouse.jpg"  width="100%" height="auto">
+                </div>
+                <div class="col-3 p-0">
+                    <img src="imges/coastline.jpg"  width="100%" height="auto">
+                </div>
             </div>
             
-            <p> Discover a stunning array of meticulously designed maps that will challenge your strategic prowess at every turn. <br>
+            <p class="fs-1 text-light"> Discover a stunning array of meticulously designed maps that will challenge your strategic prowess at every turn. <br>
                 From tight urban environments to sprawling country estates, each map offers a unique and exhilarating experience. <br>
                 Whether you're breaching barricades or defending against an onslaught, Rainbow Six: Siege maps will keep you on the edge of your seat.</p>
-
-            <div class="panoram">
-                <img src="imges/favela.jpg">
-                <img src="imges/fortress.jpg">
-                <img src="imges/kafe.jpg">
-                <img src="imges/kanal.jpg">
-                <img src="imges/nighthaven.jpg">
-            </div>
+            <div class="row align-items-center" >
+                    <div class="col-3 p-0">
+                        <img src="imges/favela.jpg"  width="100%" height="auto">
+                    </div>
+                    <div class="col-3 p-0">
+                        <img src="imges/fortress.jpg"  width="100%" height="auto">
+                    </div>
+                    <div class="col-3 p-0">
+                        <img src="imges/kafe.jpg"  width="100%" height="auto">
+                    </div>
+                    <div class="col-3 p-0">
+                        <img src="imges/kanal.jpg"  width="100%" height="auto">
+                    </div>
+                </div>
         </div>
 
     </main>
