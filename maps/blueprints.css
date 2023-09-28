@@ -1,0 +1,83 @@
+#borderMap:hover{
+    transform: scale(1.2);
+    content: url('imges/border-blueprint.webp');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#chaletMap:hover{
+    transform: scale(1.2);
+    content: url('imges/chalet-blueprint.webp');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#clubMap:hover{
+    transform: scale(1.2);
+    content: url('imges/clubhouse-blueprint.webp');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#coastMap:hover{
+    transform: scale(1.2);
+    content: url('imges/coastline-blueprint.webp');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#emeraldMap:hover{
+    transform: scale(1.2);
+    content: url('imges/emeraldplains-blueprint.webp');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#favelaMap:hover{
+    transform: scale(1.2);
+    content: url('imges/favela-blueprint.jpg');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#fortressMap:hover{
+    transform: scale(1.2);
+    content: url('imges/fortress-blueprint.jpg');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#kafeMap:hover{
+    transform: scale(1.2);
+    content: url('imges/kafe-blueprint.jpg');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#kanalMap:hover{
+    transform: scale(1.2);
+    content: url('imges/kanal-blueprint.webp');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#havenMap:hover{
+    transform: scale(1.2);
+    content: url('imges/nighthavenlabs-blueprint.jpg');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#planeMap:hover{
+    transform: scale(1.2);
+    content: url('imges/plane-blueprint.jpg');
+    transition: transform 0.2s;
+    z-index: 1;
+}
+
+#stadiumMap:hover{
+    transform: scale(1.2);
+    content: url('imges/stadium-blueprint.webp');
+    transition: transform 0.2s;
+    z-index: 1;
+}
