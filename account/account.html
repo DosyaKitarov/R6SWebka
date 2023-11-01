@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        @font-face {
+            font-family: 'Scout Condensed Bold';
+            src: url('../Scout Condensed Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        body {
+            font-family: 'Scout Condensed Bold';
+            background-image: url(https://static-dm.ubisoft.com/siege/prod/7907369fa863844fc1ae432a9ca0e610.jpg);
+        }
+    </style>
+    <title>Account</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-dark">
+        <div class="col">
+            <ul class="nav justify-content-left align-items-center">
+                <li class="nav-item ms-3">
+                    <a href="../index.html"><img src="../imges/R6logo.png" width="70%" height="auto" alt="R6 Logo"></a>
+                </li>
+                <li class="nav-link ms-3 fs-2">
+                    <a href="../operators/operators.html" class="text-light">Operators</a>
+                </li>
+                <li class="nav-link ms-3 fs-2">
+                    <a href="../maps/maps.html" class="text-light">Maps</a>
+                </li>
+                <li class="nav-link ms-3 fs-2">
+                    <a href="" onclick="battlePass()" class="text-light">Battle pass</a>
+                </li>
+                <li class="nav-link ms-3 fs-2">
+                    <a href="" class="text-light">Account</a>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <form class="login-form">
+                    <p class="h1 text-light">Login</p>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label fs-4 text-light">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text fs-4 text-light">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label fs-4 text-light">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary fs-4 text-light me-4" onclick="login()">Submit</button>
+                </form>
+                <form class="registration-form" style="display: none;">
+                    <p class="h1 text-light">Registration</p>
+                    <div class="mb-3">
+                        <label for="nickname" class="form-label fs-4 text-light">Nickname</label>
+                        <input type="text" class="form-control" id="nickname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label fs-4 text-light">First Name</label>
+                        <input type="text" class="form-control" id="firstName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label fs-4 text-light">Last Name</label>
+                        <input type="text" class="form-control" id="lastName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="birthdate" class="form-label fs-4 text-light">Date of Birth</label>
+                        <input type="date" class="form-control" id="birthdate">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label fs-4 text-light">Email address</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label fs-4 text-light">Password</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary fs-4 text-light me-4" onclick="registerAccount()">Submit</button>
+                </form>
+                <button type="button" id="toggleButton" class="btn btn-primary fs-4 text-light mt-1" onclick="toggleForm()">Don't have an account?</button>
+                <div id="accountInfo" style="display: none;">
+                    <p class="h1 text-light">Account Information</p>
+                    <ul class="list-group">
+                        <li class="list-group-item" id="nicknameField">Nickname in game: </li>
+                        <li class="list-group-item" id="firstNameField">Last name: </li>
+                        <li class="list-group-item" id="lastNameField">Last name:</li>
+                        <li class="list-group-item" id="birthdateField">Date of Birth:</li>
+                        <li class="list-group-item" id="emailField">Email: </li>
+
+                    </ul>
+                </div>
+                <button type="button" id="logOutButton" class="btn btn-primary fs-4 text-light mt-1" onclick="logout()">Logout</button>
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer class="container-fluid row bg-dark m-0 fs-3">
+        <div class="col-lg-4 card bg-transparent border-0 mb-5">
+            <div class="card-body p-2">
+                <img src="../imges/ubisoftlogo.png" alt="Ubisoft" width="40%" height="auto">
+            </div>
+        </div>
+        <div class="col-lg-4 card bg-transparent border-0 mt-5 mb-5">
+            <div class="card-body p-0">
+                <h4 class="card-title text-light">Contacts</h4>
+                <p class="card-text text-light"> 5505 St-Laurent Boulevard, #2000 <br> Montreal, Quebec, H2T 1S6</p>
+                <p class="card-text text-light">(514) 490-2000</p>
+            </div>
+        </div>
+        <div class="col-lg-4 card bg-transparent border-0 mt-5 mb-5">
+            <div class="card-body p-0 justify-content-center">
+                <h4 class="card-title text-light">Important link</h4>
+                <a class="card-text text-light text-decoration-none" href="https://twitter.com/Rainbow6Game">Twitter <img src="../imges/twitter.svg" class="img-fluid" width="10%" alt=""></a>
+
+                <br>
+                <a class="card-text text-light text-decoration-none" href="https://www.twitch.tv/rainbow6">Twitch <img src="../imges/twitch.svg" class="img-fluid" width="10%" alt=""> </a>
+
+                <br>
+                <a class="card-text text-light text-decoration-none" href="https://discord.com/invite/ubisoftofficial">Discord <img src="../imges/discord.svg" class="img-fluid" width="10%" alt=""></a>
+
+                <br>
+                <a class="card-text text-light text-decoration-none" href="https://youtu.be/FtutLA63Cp8?si=EnVIuhoEuTFAR-KZ">YouTube  <img src="../imges/youtube.svg" class="img-fluid" width="10%" alt=""> </a>
+
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="account.js"></script>
+</body>
+
+</html>
