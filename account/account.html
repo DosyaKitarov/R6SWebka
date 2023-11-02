@@ -24,7 +24,9 @@
         <div class="col">
             <ul class="nav justify-content-left align-items-center">
                 <li class="nav-item ms-3">
-                    <a href="../index.html"><img src="../imges/R6logo.png" width="70%" height="auto" alt="R6 Logo"></a>
+                    <a href="../index.html">
+                        <img src="../imges/R6logo.png" width="70%" height="auto" alt="R6 Logo">
+                    </a>
                 </li>
                 <li class="nav-link ms-3 fs-2">
                     <a href="../operators/operators.html" class="text-light">Operators</a>
@@ -38,14 +40,12 @@
                 <li class="nav-link ms-3 fs-2">
                     <a href="" class="text-light">Account</a>
                 </li>
-
             </ul>
         </div>
     </header>
-
-    <main>
+    <main class=" container-fluid ">
         <div class="row justify-content-center">
-            <div class="col-5">
+            <div class="col-5" id="reg">
                 <form class="login-form">
                     <p class="h1 text-light">Login</p>
                     <div class="mb-3">
@@ -88,24 +88,110 @@
                     <button type="submit" class="btn btn-primary fs-4 text-light me-4" onclick="registerAccount()">Submit</button>
                 </form>
                 <button type="button" id="toggleButton" class="btn btn-primary fs-4 text-light mt-1" onclick="toggleForm()">Don't have an account?</button>
-                <div id="accountInfo" style="display: none;">
-                    <p class="h1 text-light">Account Information</p>
-                    <ul class="list-group">
-                        <li class="list-group-item" id="nicknameField">Nickname in game: </li>
-                        <li class="list-group-item" id="firstNameField">Last name: </li>
-                        <li class="list-group-item" id="lastNameField">Last name:</li>
-                        <li class="list-group-item" id="birthdateField">Date of Birth:</li>
-                        <li class="list-group-item" id="emailField">Email: </li>
-
-                    </ul>
+            </div>
+            <div class="col " id="accountInfo" style="display: none;">
+                <div class="row  justify-content-center">
+                    <div class="col-5">
+                        <p class="h1 text-light">Account Information</p>
+                        <ul class="list-group">
+                            <li class="list-group-item h2" id="nicknameField">Nickname in game: </li>
+                            <li class="list-group-item h2" id="firstNameField">Last name: </li>
+                            <li class="list-group-item h2" id="lastNameField">Last name:</li>
+                            <li class="list-group-item h2" id="birthdateField">Date of Birth:</li>
+                            <li class="list-group-item h2" id="emailField">Email: </li>
+                        </ul>
+                        <button type="button" id="logOutButton" class="btn btn-primary fs-4 text-light mt-1" onclick="logout()">Logout</button>
+                    </div>
+                    <div class="col-3 mt-4">
+                        <img id="pfp" src="imges/nopfp.webp" class="img-fluid" style=" border-radius: 10%;">
+                    </div>
                 </div>
+                <div class="row justify-content-center text-center">
+                    <div class="col-3">
+                        <div class="row">
+                            <p class="h1 text-light">Favourite operators</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <img id="favAttack" src="imges/recruit.png" class="img-fluid">
+                            </div>
+                            <div class="col-6">
+                                <img id="favDefense" src="imges/recruit.png" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <p class="h1 text-light">Curent season rank</p>
+                        </div>
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <img id="rank" src="imges/noRank.png" class="img-fluid">
+                            </div>
+                            <div class="col-6">
+                                <p id="rankName" class="h3 text-light">UNRANKED</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 mt-5" id="adminPanel" style="display: none;">
+                <p class="h1 text-light"> Admin panel</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nickname</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">LastName</th>
+                            <th scope="col">Birthdate</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Favourite Attacker</th>
+                            <th scope="col">Favourite Defenser</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td contenteditable="true" id="nickName1">Nickname</td>
+                            <td contenteditable="true" id="firstName1">Firstname</td>
+                            <td contenteditable="true" id="lastName1">LastName</td>
+                            <td contenteditable="true" id="birthdate1">Birthdate</td>
+                            <td contenteditable="true" id="email1">Email</td>
+                            <td contenteditable="true" id="password1">Password</td>
+                            <td contenteditable="true" id="favAttack1">Favourite Attacker</td>
+                            <td contenteditable="true" id="favDefense1">Favourite Defenser</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td contenteditable="true" id="nickName2">Nickname</td>
+                            <td contenteditable="true" id="firstName2">Firstname</td>
+                            <td contenteditable="true" id="lastName2">LastName</td>
+                            <td contenteditable="true" id="birthdate2">Birthdate</td>
+                            <td contenteditable="true" id="email2">Email</td>
+                            <td contenteditable="true" id="password2">Password</td>
+                            <td contenteditable="true" id="favAttack2">Favourite Attacker</td>
+                            <td contenteditable="true" id="favDefense2">Favourite Defenser</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td contenteditable="true" id="nickName3">Nickname</td>
+                            <td contenteditable="true" id="firstName3">Firstname</td>
+                            <td contenteditable="true" id="lastName3">LastName</td>
+                            <td contenteditable="true" id="birthdate3">Birthdate</td>
+                            <td contenteditable="true" id="email3">Email</td>
+                            <td contenteditable="true" id="password3">Password</td>
+                            <td contenteditable="true" id="favAttack3">Favourite Attacker</td>
+                            <td contenteditable="true" id="favDefense3">Favourite Defenser</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" id="save" class="btn btn-primary fs-4 text-light mt-1" onclick="save()">Save</button>
                 <button type="button" id="logOutButton" class="btn btn-primary fs-4 text-light mt-1" onclick="logout()">Logout</button>
             </div>
-
-
         </div>
     </main>
-
     <footer class="container-fluid row bg-dark m-0 fs-3">
         <div class="col-lg-4 card bg-transparent border-0 mb-5">
             <div class="card-body p-2">
@@ -115,24 +201,24 @@
         <div class="col-lg-4 card bg-transparent border-0 mt-5 mb-5">
             <div class="card-body p-0">
                 <h4 class="card-title text-light">Contacts</h4>
-                <p class="card-text text-light"> 5505 St-Laurent Boulevard, #2000 <br> Montreal, Quebec, H2T 1S6</p>
+                <p class="card-text text-light"> 5505 St-Laurent Boulevard, #2000 <br> Montreal, Quebec, H2T 1S6 </p>
                 <p class="card-text text-light">(514) 490-2000</p>
             </div>
         </div>
         <div class="col-lg-4 card bg-transparent border-0 mt-5 mb-5">
             <div class="card-body p-0 justify-content-center">
                 <h4 class="card-title text-light">Important link</h4>
-                <a class="card-text text-light text-decoration-none" href="https://twitter.com/Rainbow6Game">Twitter <img src="../imges/twitter.svg" class="img-fluid" width="10%" alt=""></a>
-
+                <a class="card-text text-light text-decoration-none" href="https://twitter.com/Rainbow6Game">Twitter <img src="../imges/twitter.svg" class="img-fluid" width="10%" alt="">
+          </a>
                 <br>
-                <a class="card-text text-light text-decoration-none" href="https://www.twitch.tv/rainbow6">Twitch <img src="../imges/twitch.svg" class="img-fluid" width="10%" alt=""> </a>
-
+                <a class="card-text text-light text-decoration-none" href="https://www.twitch.tv/rainbow6">Twitch <img src="../imges/twitch.svg" class="img-fluid" width="10%" alt="">
+          </a>
                 <br>
-                <a class="card-text text-light text-decoration-none" href="https://discord.com/invite/ubisoftofficial">Discord <img src="../imges/discord.svg" class="img-fluid" width="10%" alt=""></a>
-
+                <a class="card-text text-light text-decoration-none" href="https://discord.com/invite/ubisoftofficial">Discord <img src="../imges/discord.svg" class="img-fluid" width="10%" alt="">
+          </a>
                 <br>
-                <a class="card-text text-light text-decoration-none" href="https://youtu.be/FtutLA63Cp8?si=EnVIuhoEuTFAR-KZ">YouTube  <img src="../imges/youtube.svg" class="img-fluid" width="10%" alt=""> </a>
-
+                <a class="card-text text-light text-decoration-none" href="https://youtu.be/FtutLA63Cp8?si=EnVIuhoEuTFAR-KZ">YouTube <img src="../imges/youtube.svg" class="img-fluid" width="10%" alt="">
+          </a>
             </div>
         </div>
     </footer>
