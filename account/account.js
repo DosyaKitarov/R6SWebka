@@ -207,7 +207,7 @@ function registerAccount() {
         favAttackName: "Recruit",
         favDefense: "imges/recruit.png",
         favDefenseName: "Recruit",
-        rank: "imges/noRank.png",
+        rank: "imges/norank.png",
         rankName: "UNRANKED"
     };
     // Преобразуем объект аккаунта в JSON
