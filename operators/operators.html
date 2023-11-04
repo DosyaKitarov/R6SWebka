@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        @font-face {
+        font-family: 'Scout Condensed Bold';
+        src: url('../Scout Condensed Bold.otf') format('opentype');
+        font-weight: bold;
+        font-style: normal;
+        }
+        body {
+            font-family: 'Scout Condensed Bold';
+            background-image: url(https://static-dm.ubisoft.com/siege/prod/7907369fa863844fc1ae432a9ca0e610.jpg);
+        }
+        #survey {
+            display: none;
+        }
+        #suggested-operators {
+            display: none;
+        }
+        .operators img {
+            max-width: 120px;
+            max-height: 120px;
+        }
+    </style>
+    <title>Operators</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-dark">
+        <div class="col">
+            <ul class="nav justify-content-left align-items-center">
+                <li class="nav-item ms-3">
+                    <a href="../index.html"><img src="../imges/R6logo.png" width="70%" height="auto" alt="R6 Logo"></a>
+                </li>
+                <li class="nav-link ms-3 fs-2">
+                    <a href="operators.html" class="text-light">Operators</a>
+                </li>
+                <li class="nav-link ms-3 fs-2">
+                    <a href="../maps/maps.html" class="text-light">Maps</a>
+                </li>
+                <li class="nav-link ms-3 fs-2">
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="text-light">Battle pass</a>
+                </li>  
+            </ul>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <div class="row justify-content-center text-center mt-5">
+            <div class="row">
+                <p class="fs-1 text-light align-items-center">Explore the world of Rainbow Six Siege operators! <br> Learn about their unique abilities, gear, and backgrounds.
+                     Master the art of strategy and teamwork to conquer the battlefield.</p><br>
+
+                <div id="survey-start" class="card-body bg-black bg-opacity-25">
+                    <h3 class="fs-2 text-light m-2">Don't know which operator play? Answer 3 easy questions and we'll recommend you!</h3>
+                    <button type="button" onclick="showQuestion()" class="btn btn-dark fs-3 text-light m-2">      Try      </button>
+                </div>
+
+                <!-- Task 2 -->
+                <div  id="survey" class="card-body bg-black bg-opacity-25">
+                    <div id="survey-body">
+                        <h5 id="survey-question" class="fs-2 text-light m-2"></h5>
+                        <form id="survey-options" class="fs-1 text-light m-1">
+                            <button type="button" class="btn btn-dark fs-3 text-light m-2"></button>
+                        </form>
+                    </div>
+
+                    <div id="suggested-operators" class="fs-1 text-light m-1">
+                        <h5 class="fs-2 text-light m-2">Based on your answers, we recommend to start with one of these operators:</h5>
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-3 fs-3 justify-content-center align-items-center">
+                                <img id="suggestion-1-img" width="50%" height="auto">
+                                <p id="suggestion-1-name"></p>
+                            </div>
+                            <div class="col-3 fs-3 justify-content-center align-items-center">
+                                <img id="suggestion-2-img" width="50%" height="auto">
+                                <p id="suggestion-2-name"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mt-5">
+                    <button type="button" class="col-1 btn btn-dark fs-4 text-light m-2" onclick="showAll()">ALL</button>
+                    <button type="button" class="col-1 btn btn-dark fs-4 text-light m-2" onclick="filterWolfguard()"> WOLFGUARD </button>
+                    <button type="button" class="col-1 btn btn-dark fs-4 text-light m-2" onclick="filterNighthaven()"> NIGHTHAVEN </button>
+                    <button type="button" class="col-1 btn btn-dark fs-4 text-light m-2" onclick="filterViperstrike()"> VIPERSTRIKE </button>
+                    <button type="button" class="col-1 btn btn-dark fs-4 text-light m-2" onclick="filterGhosteyes()"> GHOSTEYES </button>
+                    <button type="button" class="col-1 btn btn-dark fs-4 text-light m-2" onclick="filterRedhammer()"> REDHAMMER </button>
+                </div>
+
+                <p class="fs-1 text-light align-items-center mt-1"> СAN YOU REINFORCE THE OBJECTIVE AND PROTECT HOSTAGE FROM ATTACKERS AS A</p>
+                <p class="fs-1 text-light bg-gradient mt-1">DEFENDERS<img src="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path fill='%23fff' d='M19.27,9.74l-4.25,2.17L10.73,9.7L8.15,28h13.7L19.27,9.74z M21.23,7.01V2h-2.88v1.73h-1.96V2h-2.78v1.73h-1.96V2H8.77v4.96l6.25,3.51L21.23,7.01z'/></svg>" width="5%" height="auto"></p> 
+            </div>
+            
+            <div>
+                <div class="row">
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/defense/smoke.png"width="80%" height="auto" alt="SMOKE">
+                        <a href="https://youtu.be/bElJUTyCMII?si=ilSZZ4U85IDhKwlH" target="_blank" class="text-light">SMOKE</a>
+                    </div>
+                    
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/defense/mute.png"width="80%" height="auto" alt="MUTE">
+                        <a href="https://youtu.be/x7xdVUyD11Y?si=xO3uMWujQqqGyRuh" target="_blank" class="text-light">MUTE</a>
+                    </div>
+                    
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/defense/castle.png"width="80%" height="auto" alt="CASTLE">
+                        <a href="https://youtu.be/7qj-CGKFJdM?si=ABJgHperfr9yZcyc" target="_blank" class="text-light">CASTLE</a>
+                    </div>
+                    
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/defense/pulse.png"width="80%" height="auto" alt="PULSE">
+                        <a href="https://youtu.be/FlXZWEkMUHA?si=XxZDQfJd5dAJaYVx" target="_blank" class="text-light">PULSE</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/defense/rook.png"width="80%" height="auto" alt="ROOK">
+                        <a href="https://youtu.be/9eBBgXvfvT4?si=BMbArYMO_KZ9XTyn" target="_blank" class="text-light">ROOK</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/defense/doc.png"width="80%" height="auto" alt="DOC">
+                        <a href="https://youtu.be/wco4nHd-2dM?si=3OC571eYJy0jFl1p" target="_blank" class="text-light">DOC</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/defense/kapkan.png"width="80%" height="auto" alt="KAPKAN">
+                        <a href="https://youtu.be/tuI98yVthxc?si=0D3OsXC_CJNe6I8F" target="_blank" class="text-light">KAPKAN</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/defense/tachanka.png"width="80%" height="auto" alt="TACHANKA">
+                        <a href="https://youtu.be/z3uS33-1S9M?si=I4Bp9gqL9fg_0K2R" target="_blank" class="text-light">TACHANKA</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/defense/jager.png"width="80%" height="auto" alt="JAGER">
+                        <a href="https://youtu.be/wEM1BK4eO8M?si=yg9jFWfj1nwBd4J3" target="_blank" class="text-light">JÄGER</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/defense/bandit.png"width="80%" height="auto" alt="BANDIT">
+                        <a href="https://youtu.be/-gVIrigdekM?si=cWqQqaHVb6O0MUCY" target="_blank" class="text-light">BANDIT</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/defense/frost.png"width="80%" height="auto" alt="FROST">
+                        <a href="https://youtu.be/m5AnjYSUB3E?si=mWcqX4Q-wFtcR5oJ" target="_blank" class="text-light">FROST</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/defense/valkyrie.png"width="80%" height="auto" alt="VALKYRIE">
+                        <a href="https://youtu.be/HTIDuHZwjtU?si=Guwa8_s-Kyr4LV4U" target="_blank" class="text-light">VALKYRIE</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/defense/caveira.png"width="80%" height="auto" alt="CAVEIRA">
+                        <a href="https://youtu.be/yk9EDDmdz5U?si=6hxZG2bNJIHodiFA" target="_blank" class="text-light">CAVEIRA</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/defense/echo.png"width="80%" height="auto" alt="ECHO">
+                        <a href="https://youtu.be/S0pMXIbLYEo?si=1KBP8kMSgLq41qax" target="_blank" class="text-light">ECHO</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/defense/mira.png"width="80%" height="auto" alt="MIRA">
+                        <a href="https://youtu.be/CVss6iuCJs0?si=3vjtaKPV5vc7Ysev" target="_blank" class="text-light">MIRA</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/defense/lesion.png"width="80%" height="auto" alt="LESION">
+                        <a href="https://youtu.be/Mg4kXUI2QTo?si=Bnn2abwyFWR8jlbI" target="_blank" class="text-light">LESION</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/defense/ela.png"width="80%" height="auto" alt="ELA">
+                        <a href="https://youtu.be/OQNrX060JWg?si=idLsDoL5QOoEi0r_" target="_blank" class="text-light">ELA </a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/defense/vigil.png"width="80%" height="auto" alt="VIGIL">
+                        <a href="https://youtu.be/59hMaqYpjqs?si=uGaSIgA65FtGCbly" target="_blank" class="text-light">VIGIL</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/defense/maestro.png"width="80%" height="auto" alt="MAESTRO">
+                        <a href="https://youtu.be/NKMrrpphc00?si=JrbFKueMeVp07PBC" target="_blank" class="text-light">MAESTRO</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/defense/alibi.png"width="80%" height="auto" alt="ALIBI">
+                        <a href="https://youtu.be/BTFqvvAO5Mg?si=n0oktTDABHXpF_ql" target="_blank" class="text-light">ALIBI</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/defense/clash.png"width="80%" height="auto" alt="CLASH">
+                        <a href="https://youtu.be/IxxPLtOIyNI?si=jVDEqsDHVbD401GI" target="_blank" class="text-light">CLASH</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/defense/kaid.png"width="80%" height="auto" alt="KAID">
+                        <a href="https://youtu.be/qubVIt9Ftf4?si=ULbnA0G1YZaFRkOk" target="_blank" class="text-light">KAID</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/defense/mozzie.png"width="80%" height="auto" alt="MOZZIE">
+                        <a href="https://youtu.be/tKkznG7DPRo?si=eRWoaXQdw43kg5wR" target="_blank" class="text-light">MOZZIE</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/defense/warden.png"width="80%" height="auto" alt="WARDEN">
+                        <a href="https://youtu.be/IL3wN0fMMXI?si=mJBDrMEQecrRPJC0" target="_blank" class="text-light">WARDEN</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/defense/goyo.png"width="80%" height="auto" alt="GOYO">
+                        <a href="https://youtu.be/rKZT8iREmzI?si=hBvZ39atGQivMtyZ" target="_blank" class="text-light">GOYO</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/defense/wamai.png"width="80%" height="auto" alt="WAMAI">
+                        <a href="https://youtu.be/wViYk2B6fkg?si=Hq3LkNYmowPhbV_0" target="_blank" class="text-light">WAMAI</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators">
+                        <img src="imges/defense/oryx.png"width="80%" height="auto" alt="ORYX">
+                        <a href="https://youtu.be/CBPT5Zxl9LQ?si=tbf9La438_GFdUx-" target="_blank" class="text-light">ORYX</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/defense/melusi.png"width="80%" height="auto" alt="MELUSI">
+                        <a href="opersinfo/opersinfo.html?op=melusi" target="_blank" class="text-light">MELUSI</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/defense/aruni.png"width="80%" height="auto" alt="ARUNI">
+                        <a href="opersinfo/opersinfo.html?op=aruni" target="_blank" class="text-light">ARUNI</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/defense/thunderbird.png"width="80%" height="auto" alt="THUNDERBIRD">
+                        <a href="opersinfo/opersinfo.html?op=thunderbird" target="_blank" class="text-light">THUNDERBIRD</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/defense/thorn.png"width="80%" height="auto" alt="THORN">
+                        <a href="opersinfo/opersinfo.html?op=thorn" target="_blank" class="text-light">THORN</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/defense/azami.png"width="80%" height="auto" alt="AZAMI">
+                        <a href="opersinfo/opersinfo.html?op=azami" target="_blank" class="text-light">AZAMI</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/defense/solis.png"width="80%" height="auto" alt="SOLIS">
+                        <a href="opersinfo/opersinfo.html?op=solis" target="_blank" class="text-light">SOLIS</a>
+                    </div>
+                </div>           
+            </div>
+
+            <div class="row justify-content-center text-center">
+                <div class="row align-content-center ">
+                    <p class="fs-1 text-light align-items-center mt-4">OR</p>
+                    <p class="fs-1 text-light align-items-center mt-4">YOU CAN ELIMINATE THE THREAT AND SECURE THE CONTAINER FROM DEFENDERS AS AN</p>
+                    <p class="fs-1 text-light bg-gradient">ATTACKERS<img src="data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path fill='%23fff' d='M8.32,19.16l-5.54,5.54H2V28h3.31v-0.79l5.54-5.54H8.32V19.16z M25.2,2L10.29,17.18L8.5,15.4l-0.94,0.94l1.87,1.87v2.36h2.36l1.87,1.87l0.94-0.94l-1.78-1.78L28,4.8V2H25.2z M21.68,19.16v2.52h-2.52l5.54,5.54V28H28v-3.31h-0.78L21.68,19.16z M14.6,11.98L4.8,2H2v2.8l9.98,9.8L14.6,11.98z M20.57,18.21l1.87-1.87L21.5,15.4l-1.78,1.78l-1.67-1.71l-2.56,2.56l1.7,1.67L15.4,21.5l0.94,0.94l1.87-1.87h2.36V18.21z'/></svg>" width="5%" height="auto">
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/attack/sledge.png"width="80%" height="auto" alt="SLEDGE">
+                        <a href="https://youtu.be/CqyKCiFo9_Q?si=XvVb41HeV0bsGJaY" target="_blank" class="text-light">SLEDGE</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/attack/thatcher.png"width="80%" height="auto" alt="THATCHER">
+                        <a href="https://youtu.be/2z6T5k9NxP4?si=kjEk8rEpmWmlqHS_" target="_blank" class="text-light">THATCHER</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/attack/ash.png"width="80%" height="auto" alt="ASH">
+                        <a href="https://youtu.be/CeKcFsNDNEg?si=qGM6pOcRjOBAC0Di" target="_blank" class="text-light">ASH</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/attack/thermite.png"width="80%" height="auto" alt="THERMITE">
+                        <a href="https://youtu.be/hlFcMbPzVnI?si=a0JxooUFtg5pCYn0" target="_blank" class="text-light">THERMITE</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/attack/twitch.png"width="80%" height="auto" alt="TWITCH">
+                        <a href="https://youtu.be/d4JffwIoyh8?si=Vsfdl5z2EXvKPCU7" target="_blank" class="text-light">TWITCH</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/attack/montagne.png"width="80%" height="auto" alt="MONTAGNE">
+                        <a href="https://youtu.be/IMpBt4djS4A?si=SQKmfVnEElcv7M5I" target="_blank" class="text-light">MONTAGNE</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/attack/fuze.png"width="80%" height="auto" alt="FUZE">
+                        <a href="https://youtu.be/dlY9_q0fup0?si=ffANqBrrO6Vqq7AG" target="_blank" class="text-light">FUZE</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/attack/glaz.png"width="80%" height="auto" alt="GLAZ">
+                        <a href="https://youtu.be/xsVAG7U93CQ?si=WYr__FMaDrT4fWso" target="_blank" class="text-light">GLAZ</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/attack/blitz.png"width="80%" height="auto" alt="BLITZ">
+                        <a href="https://youtu.be/yorwLYJHEYI?si=hf3StQ3lEU2sQvH_" target="_blank" class="text-light">BLITZ</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/attack/iq.png"width="80%" height="auto" alt="IQ">
+                        <a href="https://youtu.be/uvHfIupkqsA?si=6GFYJs3fETJg6HUW" target="_blank" class="text-light">  IQ.  </a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/attack/buck.png"width="80%" height="auto" alt="BUCK">
+                        <a href="https://youtu.be/ajNj0WdyAqw?si=hKLQT23tE1-cJjAA" target="_blank" class="text-light">BUCK</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/attack/blackbeard.png"width="80%" height="auto" alt="BLACKBEARD">
+                        <a href="https://youtu.be/6w_7f_ZsnkA?si=2sjKBxx8soZBHlrI" target="_blank" class="text-light">BLACKBEARD</a>
+                    </div>
+                    
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/attack/capitao.png"width="80%" height="auto" alt="CAPITAO">
+                        <a href="https://youtu.be/i1QAjh_xic0?si=qmnc_QdEup29yW_p" target="_blank" class="text-light">CAPITAO</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/attack/hibana.png"width="80%" height="auto" alt="HIBANA">
+                        <a href="https://youtu.be/iFDMdIvAAZ4?si=qujKZQiSMzA0INfv" target="_blank" class="text-light">HIBANA</a>
+                    </div>
+                    
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/attack/jackal.png"width="80%" height="auto" alt="JACKAL">
+                        <a href="https://youtu.be/tQksB065csA?si=cjOx4aSuNHyf7-_l" target="_blank" class="text-light">JACKAL</a>
+                    </div>
+                    
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/attack/ying.png"width="80%" height="auto" alt="YING">
+                        <a href="https://youtu.be/lJndH7L1DhI?si=ftk_MUHDf9Cba1ip" target="_blank" class="text-light">YING</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/attack/zofia.png"width="80%" height="auto" alt="ZOFIA">
+                        <a href="https://youtu.be/60eqr0ySr3Y?si=eSk3-c-mnciFn0oi" target="_blank" class="text-light">ZOFIA</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/attack/dokkaebi.png"width="80%" height="auto" alt="DOKKAEBI">
+                        <a href="https://youtu.be/OJwPGaxKo-E?si=2_S4Pcn3yYodf3hu" target="_blank" class="text-light">DOKKAEBI</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/attack/lion.png"width="80%" height="auto" alt="LION">
+                        <a href="https://youtu.be/_ReF9I8OdZE?si=7EC_-BdoUd2ntXLo" target="_blank" class="text-light">LION</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/attack/finka.png"width="80%" height="auto" alt="FINKA">
+                        <a href="https://youtu.be/d2GqCmhfTHM?si=I-Km9zmybtEiQCEv" target="_blank" class="text-light">FINKA</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/attack/maverick.png"width="80%" height="auto" alt="MAVERICK">
+                        <a href="https://youtu.be/AagYSph9POI?si=XbIiCG1OpmI3fHCa" target="_blank" class="text-light">MAVERICK</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/attack/nomad.png"width="80%" height="auto" alt="NOMAD">
+                        <a href="https://youtu.be/pkTs5c7zjhE?si=-l6K58Ftu4nkZeQN" target="_blank" class="text-light">NOMAD</a>
+                    </div>
+            
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/attack/gridlock.png"width="80%" height="auto" alt="GRIDLOCK">
+                        <a href="https://youtu.be/48akMMRwiGU?si=UmVUN1j-VatyMtzm" target="_blank" class="text-light">GRIDLOCK</a>
+                    </div>
+                    
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/attack/nokk.png"width="80%" height="auto" alt="NOKK">
+                        <a href="https://youtu.be/xROxYbFLgcw?si=lJILE9I_fgQJq65t" target="_blank" class="text-light">NOKK</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col fs-3 justify-content-center align-items-center operators redhammer">
+                        <img src="imges/attack/amaru.png"width="80%" height="auto" alt="AMARU">
+                        <a href="https://youtu.be/kic-cy6EwSk?si=GWP6Sey0hcE3y5WE" target="_blank" class="text-light">AMARU</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/attack/kali.png"width="80%" height="auto" alt="KALI">
+                        <a href="https://youtu.be/gKjQzn78Y_k?si=poW5FuUhbc22t2ek" target="_blank" class="text-light">KALI</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/attack/iana.png"width="80%" height="auto" alt="IANA">
+                        <a href="https://youtu.be/TcywxluSN6c?si=PMiZfy9CIPONf32U" target="_blank" class="text-light">IANA</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/attack/ace.png"width="80%" height="auto" alt="ACE">
+                        <a href="opersinfo/opersinfo.html?op=ace" target="_blank" class="text-light">ACE</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/attack/zero.png"width="80%" height="auto" alt="ZERO">
+                        <a href="opersinfo/opersinfo.html?op=zero" target="_blank" class="text-light">ZERO</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators ghosteyes">
+                        <img src="imges/attack/flores.png"width="80%" height="auto" alt="FLORES">
+                        <a href="opersinfo/opersinfo.html?op=flores" target="_blank" class="text-light">FLORES</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/attack/osa.png"width="80%" height="auto" alt="OSA">
+                        <a href="opersinfo/opersinfo.html?op=osa" target="_blank" class="text-light">OSA</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators wolfguard">
+                        <img src="imges/attack/sens.png"width="80%" height="auto" alt="SENS">
+                        <a href="opersinfo/opersinfo.html?op=sens" target="_blank" class="text-light">SENS</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators nighthaven">
+                        <img src="imges/attack/grim.png"width="80%" height="auto" alt="GRIM">
+                        <a href="opersinfo/opersinfo.html?op=grim" target="_blank" class="text-light">GRIM</a>
+                    </div>
+
+                    <div class="col fs-3 justify-content-center align-items-center operators viperstrike">
+                        <img src="imges/attack/brava.png"width="80%" height="auto" alt="BRAVA">
+                        <a href="opersinfo/opersinfo.html?op=brava" target="_blank" class="text-light">BRAVA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="container-fluid row bg-dark fs-3">
+        <div class="col-lg-4 card bg-transparent border-0 mt-5 mb-5">
+            <div class="card-body p-2">
+                <img src="../imges/ubisoftlogo.png" alt="Ubisoft" width="40%" height="auto">
+            </div>
+        </div>
+        <div class="col-lg-4 card bg-transparent border-0 mt-5 mb-5">
+            <div class="card-body p-0">
+                <h4 class="card-title text-light">Contacts</h4>
+                <p class="card-text text-light"> 5505 St-Laurent Boulevard, #2000 <br>
+                    Montreal, Quebec, H2T 1S6</p>
+                <p class="card-text text-light">(514) 490-2000</p>
+            </div>
+        </div>
+        <div class="col-lg-4 card bg-transparent border-0 mt-5 mb-5">
+            <div class="card-body p-0 justify-content-center">
+                <h4 class="card-title text-light">Important link</h4>
+                <a class="card-text text-light text-decoration-none" href="https://twitter.com/Rainbow6Game">Twitter <img src="../imges/twitter.svg" class="img-fluid" width="10%" alt=""></a>
+   
+                <br>
+                <a class="card-text text-light text-decoration-none" href="https://www.twitch.tv/rainbow6">Twitch <img src="../imges/twitch.svg" class="img-fluid" width="10%" alt=""> </a>
+               
+                <br>
+                <a class="card-text text-light text-decoration-none" href="https://discord.com/invite/ubisoftofficial">Discord <img src="../imges/discord.svg" class="img-fluid" width="10%" alt=""></a>
+             
+                <br>
+                <a class="card-text text-light text-decoration-none" href="https://youtu.be/FtutLA63Cp8?si=EnVIuhoEuTFAR-KZ">YouTube  <img src="../imges/youtube.svg" class="img-fluid" width="10%" alt=""> </a>
+             
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="survey.js"></script>
+    <script type="text/javascript" src="filter.js"></script>
+</body>
+</html>
