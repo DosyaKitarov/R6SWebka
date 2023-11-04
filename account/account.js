@@ -5,7 +5,7 @@ if (KitareCBT == null) {
         firstName: "Dossymzhan",
         lastName: "Zhailau",
         birthdate: "03-05-2004",
-        email: "Leron.ru2004@gmail.com",
+        email: "DosyaKitare@gmail.com",
         password: "Kitare2004",
         pfp: "imges/KitarePFP.png",
         favAttack: "../operators/imges/attack/blitz.png",
@@ -41,7 +41,6 @@ if (MelchiorCBT == null) {
 window.onload = function() {
     var isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
-        // Пользователь вошел, скрываем форму
         var currentLogin = localStorage.getItem("currentLogin")
         if (currentLogin == "user") {
             var userInformation = JSON.parse(localStorage.getItem("account"));
@@ -123,7 +122,6 @@ function usersLogin(userInformation) {
 }
 
 function toggleForm() {
-    // Найдем элементы формы и кнопки
     var loginForm = document.querySelector(".login-form");
     var registrationForm = document.querySelector(".registration-form");
     var toggleButton = document.getElementById("toggleButton")
@@ -140,7 +138,6 @@ function toggleForm() {
 }
 
 function save() {
-    // Получите данные из формы и обновите объекты KitareCBT и MelchiorCBT
     KitareCBT.nickname = document.getElementById("nickName1").textContent;
     KitareCBT.firstName = document.getElementById("firstName1").textContent;
     KitareCBT.lastName = document.getElementById("lastName1").textContent;
@@ -159,7 +156,6 @@ function save() {
     MelchiorCBT.favAttackName = document.getElementById("favAttack2").textContent;
     MelchiorCBT.favDefenseName = document.getElementById("favDefense2").textContent;
 
-    // Обновите объект пользователя из формы
     var user = {
         nickname: document.getElementById("nickName3").textContent,
         firstName: document.getElementById("firstName3").textContent,
@@ -171,22 +167,17 @@ function save() {
         favDefenseName: document.getElementById("favDefense3").textContent
     };
 
-    // Преобразуйте объект аккаунта пользователя в JSON и сохраните его в LocalStorage
     var accountJSON = JSON.stringify(user);
     localStorage.setItem("account", accountJSON);
     localStorage.setItem("KitareCBT", JSON.stringify(KitareCBT));
     localStorage.setItem("MelchiorCBT", JSON.stringify(MelchiorCBT));
 
-    // Сохраните обновленные данные KitareCBT и MelchiorCBT в LocalStorage, если необходимо
-    // Этот код может быть добавлен здесь
 
-    // Данные успешно сохранены
-    alert("Данные успешно сохранены!");
+    alert("Account saved!");
 }
 
 
 function registerAccount() {
-    // Собираем данные из формы регистрации
     var nickname = document.getElementById("nickname").value;
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
@@ -194,7 +185,7 @@ function registerAccount() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
-    // Создаем объект для аккаунта
+
     var account = {
         nickname: nickname,
         firstName: firstName,
@@ -210,52 +201,45 @@ function registerAccount() {
         rank: "imges/norank.png",
         rankName: "UNRANKED"
     };
-    // Преобразуем объект аккаунта в JSON
     var accountJSON = JSON.stringify(account);
 
-    // Сохраняем JSON в LocalStorage
     localStorage.setItem("account", accountJSON);
 
-    // Теперь аккаунт зарегистрирован и сохранен в LocalStorage
-    // Вы можете переключиться на форму входа
+
     toggleForm();
 }
 
 function login() {
-    // Собираем данные из формы входа
     var loginEmail = document.getElementById("exampleInputEmail1").value;
     var loginPassword = document.getElementById("exampleInputPassword1").value;
 
-    // Получаем JSON аккаунта из LocalStorage
     var accountJSON = localStorage.getItem("account");
     var KitareCBT = JSON.parse(localStorage.getItem("KitareCBT"));
     var MelchiorCBT = JSON.parse(localStorage.getItem("MelchiorCBT"));
     if (accountJSON) {
-        // Разбираем JSON для проверки данных
         var account = JSON.parse(accountJSON);
 
-        // Проверка введенных данных с данными аккаунта
         if (loginEmail === account.email && loginPassword === account.password) {
-            alert("Вход выполнен успешно!");
+            alert("Successful!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "user");
         } else if (loginEmail === KitareCBT.email && loginPassword === KitareCBT.password) {
-            alert("Вход выполнен успешно!");
+            alert("Successful!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "kitare")
         } else if (loginEmail === MelchiorCBT.email && loginPassword === MelchiorCBT.password) {
-            alert("Вход выполнен успешно!");
+            alert("Successful!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "melchior")
         } else if (loginEmail === "admin@admin.com" && loginPassword === "root") {
-            alert("Вход выполнен успешно!");
+            alert("Successful!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "admin")
         } else {
-            alert("Ошибка входа. Пожалуйста, проверьте введенные данные.");
+            alert("Error. Please check correctness of account.");
         }
     } else {
-        alert("Аккаунт не найден. Пожалуйста, зарегистрируйтесь.");
+        alert("Account not found. Please sign up.");
     }
 }
 
