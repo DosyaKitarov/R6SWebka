@@ -5,13 +5,13 @@ if (KitareCBT == null) {
         firstName: "Dossymzhan",
         lastName: "Zhailau",
         birthdate: "03-05-2004",
-        email: "DosyaKitare@gmail.com",
+        email: "Leron.ru2004@gmail.com",
         password: "Kitare2004",
         pfp: "imges/KitarePFP.png",
-        favAttack: "../operators/imges/attack/blitz.png",
         favAttackName: "Blitz",
-        favDefense: "../operators/imges/defense/kapkan.png",
+        favAttack: "../operators/imges/attack/" + favAttackName.toLowerCase() + ".png",
         favDefenseName: "Kapkan",
+        favDefense: "../operators/imges/defense/" + favDefenseName.toLowerCase() + ".png",
         rank: "imges/platinum5.png",
         rankName: "Platinum 5"
     };
@@ -28,10 +28,10 @@ if (MelchiorCBT == null) {
         email: "mcmatrix88@gmail.com",
         password: "Isko228",
         pfp: "imges/MelchiorPFP.png",
-        favAttack: "../operators/imges/attack/ace.png",
         favAttackName: "Ace",
-        favDefense: "../operators/imges/defense/alibi.png",
+        favAttack: "../operators/imges/attack/" + favAttackName.toLowerCase() + ".png",
         favDefenseName: "Alibi",
+        favDefense: "../operators/imges/defense/" + favDefenseName.toLowerCase() + ".png",
         rank: "imges/bronze4.png",
         rankName: "Bronze 4"
     };
@@ -146,6 +146,9 @@ function save() {
     KitareCBT.password = document.getElementById("password1").textContent;
     KitareCBT.favAttackName = document.getElementById("favAttack1").textContent;
     KitareCBT.favDefenseName = document.getElementById("favDefense1").textContent;
+    KitareCBT.favAttack = "../operators/imges/attack/" + document.getElementById("favAttack1").textContent.toLowerCase() + ".png";
+    KitareCBT.favDefense = "../operators/imges/defense/" + document.getElementById("favDefense1").textContent.toLowerCase() + ".png";
+
 
     MelchiorCBT.nickname = document.getElementById("nickName2").textContent;
     MelchiorCBT.firstName = document.getElementById("firstName2").textContent;
@@ -155,6 +158,8 @@ function save() {
     MelchiorCBT.password = document.getElementById("password2").textContent;
     MelchiorCBT.favAttackName = document.getElementById("favAttack2").textContent;
     MelchiorCBT.favDefenseName = document.getElementById("favDefense2").textContent;
+    MelchiorCBT.favAttack = "../operators/imges/attack/" + document.getElementById("favAttack2").textContent.toLowerCase() + ".png";
+    MelchiorCBT.favDefense = "../operators/imges/defense/" + document.getElementById("favDefense2").textContent.toLowerCase() + ".png";
 
     var user = {
         nickname: document.getElementById("nickName3").textContent,
@@ -164,7 +169,9 @@ function save() {
         email: document.getElementById("email3").textContent,
         password: document.getElementById("password3").textContent,
         favAttackName: document.getElementById("favAttack3").textContent,
-        favDefenseName: document.getElementById("favDefense3").textContent
+        favDefenseName: document.getElementById("favDefense3").textContent,
+        favAttack: "../operators/imges/attack/" + document.getElementById("favAttack3").textContent.toLowerCase() + ".png",
+        favDefense: "../operators/imges/defense/" + document.getElementById("favDefense3").textContent.toLowerCase() + ".png"
     };
 
     var accountJSON = JSON.stringify(user);
@@ -172,8 +179,7 @@ function save() {
     localStorage.setItem("KitareCBT", JSON.stringify(KitareCBT));
     localStorage.setItem("MelchiorCBT", JSON.stringify(MelchiorCBT));
 
-
-    alert("Account saved!");
+    alert("Данные успешно сохранены!");
 }
 
 
@@ -185,7 +191,6 @@ function registerAccount() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
-
     var account = {
         nickname: nickname,
         firstName: firstName,
@@ -194,17 +199,16 @@ function registerAccount() {
         email: email,
         password: password,
         pfp: "imges/nopfp.webp",
-        favAttack: "imges/recruit.png",
         favAttackName: "Recruit",
-        favDefense: "imges/recruit.png",
+        favAttack: "imges/" + toLowerCase(favAttackName) + ".png",
         favDefenseName: "Recruit",
-        rank: "imges/norank.png",
+        favDefense: "imges/" + toLowerCase(favDefenseName) + ".png",
+        rank: "imges/noRank.png",
         rankName: "UNRANKED"
     };
     var accountJSON = JSON.stringify(account);
 
     localStorage.setItem("account", accountJSON);
-
 
     toggleForm();
 }
@@ -220,26 +224,26 @@ function login() {
         var account = JSON.parse(accountJSON);
 
         if (loginEmail === account.email && loginPassword === account.password) {
-            alert("Successful!");
+            alert("Вход выполнен успешно!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "user");
         } else if (loginEmail === KitareCBT.email && loginPassword === KitareCBT.password) {
-            alert("Successful!");
+            alert("Вход выполнен успешно!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "kitare")
         } else if (loginEmail === MelchiorCBT.email && loginPassword === MelchiorCBT.password) {
-            alert("Successful!");
+            alert("Вход выполнен успешно!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "melchior")
         } else if (loginEmail === "admin@admin.com" && loginPassword === "root") {
-            alert("Successful!");
+            alert("Вход выполнен успешно!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "admin")
         } else {
-            alert("Error. Please check correctness of account.");
+            alert("Ошибка входа. Пожалуйста, проверьте введенные данные.");
         }
     } else {
-        alert("Account not found. Please sign up.");
+        alert("Аккаунт не найден. Пожалуйста, зарегистрируйтесь.");
     }
 }
 
