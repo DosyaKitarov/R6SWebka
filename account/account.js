@@ -56,6 +56,9 @@ window.onload = function() {
             adminLogin()
         }
     }
+    else {
+        document.getElementById("reg").style.display = "block";
+    }
 }
 
 function adminLogin() {
