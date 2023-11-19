@@ -1,16 +1,17 @@
 var pressed = false;
+var isLoggedIn = localStorage.getItem("isLoggedIn");
 
 function likePress() {
     if (pressed == false) {
         pressed = true;
         alert("Thanks!");
         console.log("Done");
-    }else{
+    } else {
         var ans = prompt("You want to change your mind? Y/N")
-        if (ans=="Y"||ans=="y"){
+        if (ans == "Y" || ans == "y") {
             alert("Okay! Press rate button again.")
-            pressed=false
-        } else if(ans=="N"||ans=="n"){
+            pressed = false
+        } else if (ans == "N" || ans == "n") {
             alert("Okay!")
         }
     }
@@ -22,13 +23,57 @@ function dislikePress() {
         prompt("Tell us what you didn't like?");
         alert("Thanks! We heard you!");
         console.log("Done");
-    }else{
+    } else {
         var ans = prompt("You want to change your mind? Y/N")
-        if (ans=="Y"||ans=="y"){
+        if (ans == "Y" || ans == "y") {
             alert("Okay! Press rate button again.")
-            pressed=false
-        } else if(ans=="N"||ans=="n"){
+            pressed = false
+        } else if (ans == "N" || ans == "n") {
             alert("Okay!")
         }
+    }
+}
+
+function postLike(button) {
+    if (isLoggedIn === "true") {
+        var countElement = button.closest('.card').querySelector(".count");
+        var likeButton = button;
+        var dislikeButton = button.closest('.card').querySelector(".dislikeButton");
+
+        var currentCount = parseInt(countElement.textContent);
+
+        if (!likeButton.disabled && !dislikeButton.disabled) {
+            countElement.textContent = currentCount + 1;
+            likeButton.disabled = true;
+        } else if (!likeButton.disabled && dislikeButton.disabled) {
+            countElement.textContent = currentCount + 2;
+            likeButton.disabled = true;
+            dislikeButton.disabled = false;
+        }
+    } else {
+        alert("Please Log in!")
+    }
+
+
+}
+
+function postDislike(button) {
+    if (isLoggedIn === "true") {
+        var countElement = button.closest('.card').querySelector(".count");
+        var likeButton = button.closest('.card').querySelector(".likeButton");
+        var dislikeButton = button;
+
+        var currentCount = parseInt(countElement.textContent);
+
+        if (!dislikeButton.disabled && !likeButton.disabled) {
+            countElement.textContent = currentCount - 1;
+            dislikeButton.disabled = true;
+        } else if (!dislikeButton.disabled && likeButton.disabled) {
+            countElement.textContent = currentCount - 2;
+            likeButton.disabled = false;
+            dislikeButton.disabled = true;
+        }
+    } else {
+        alert("Please Log in!");
     }
 }
