@@ -38,6 +38,7 @@ if (MelchiorCBT == null) {
     localStorage.setItem("MelchiorCBT", JSON.stringify(MelchiorCBT))
     var MelchiorCBT = localStorage.getItem("MelchiorCBT")
 }
+
 window.onload = function() {
     var isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
@@ -184,6 +185,7 @@ function save() {
 
 
 function registerAccount() {
+
     var nickname = document.getElementById("nickname").value;
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
@@ -191,6 +193,7 @@ function registerAccount() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
+    var favOp = "Recruit";
     var account = {
         nickname: nickname,
         firstName: firstName,
@@ -199,13 +202,14 @@ function registerAccount() {
         email: email,
         password: password,
         pfp: "imges/nopfp.webp",
-        favAttackName: "Recruit",
-        favAttack: "imges/" + toLowerCase(favAttackName) + ".png",
-        favDefenseName: "Recruit",
-        favDefense: "imges/" + toLowerCase(favDefenseName) + ".png",
+        favAttackName: favOp,
+        favAttack: "imges/" + favOp.toLowerCase() + ".png",
+        favDefenseName: favOp,
+        favDefense: "imges/" + favOp.toLowerCase() + ".png",
         rank: "imges/noRank.png",
         rankName: "UNRANKED"
     };
+    alert("Success");
     var accountJSON = JSON.stringify(account);
 
     localStorage.setItem("account", accountJSON);
@@ -223,19 +227,19 @@ function login() {
     if (accountJSON) {
         var account = JSON.parse(accountJSON);
 
-        if (loginEmail === account.email && loginPassword === account.password) {
+        if (loginEmail.toLowerCase() === account.email.toLowerCase() && loginPassword === account.password) {
             alert("Вход выполнен успешно!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "user");
-        } else if (loginEmail === KitareCBT.email && loginPassword === KitareCBT.password) {
+        } else if (loginEmail.toLowerCase() === KitareCBT.email.toLowerCase() && loginPassword === KitareCBT.password) {
             alert("Вход выполнен успешно!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "kitare")
-        } else if (loginEmail === MelchiorCBT.email && loginPassword === MelchiorCBT.password) {
+        } else if (loginEmail.toLowerCase() === MelchiorCBT.email.toLowerCase() && loginPassword === MelchiorCBT.password) {
             alert("Вход выполнен успешно!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "melchior")
-        } else if (loginEmail === "admin@admin.com" && loginPassword === "root") {
+        } else if (loginEmail.toLowerCase() === "admin@admin.com" && loginPassword === "root") {
             alert("Вход выполнен успешно!");
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("currentLogin", "admin")

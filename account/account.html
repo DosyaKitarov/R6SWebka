@@ -126,7 +126,7 @@
                         </div>
                         <div class="row align-items-center">
                             <div class="col-6">
-                                <img id="rank" src="imges/norank.png" class="img-fluid">
+                                <img id="rank" src="imges/noRank.png" class="img-fluid">
                             </div>
                             <div class="col-6">
                                 <p id="rankName" class="h3 text-light">UNRANKED</p>
@@ -136,92 +136,147 @@
                 </div>
             </div>
             <div class="col-8 mt-5" id="adminPanel" style="display: none;">
-                <p class="h1 text-light"> Admin panel</p>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nickname</th>
-                            <th scope="col">Firstname</th>
-                            <th scope="col">LastName</th>
-                            <th scope="col">Birthdate</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Password</th>
-                            <th scope="col">Favourite Attacker</th>
-                            <th scope="col">Favourite Defenser</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td contenteditable="true" id="nickName1">Nickname</td>
-                            <td contenteditable="true" id="firstName1">Firstname</td>
-                            <td contenteditable="true" id="lastName1">LastName</td>
-                            <td contenteditable="true" id="birthdate1">Birthdate</td>
-                            <td contenteditable="true" id="email1">Email</td>
-                            <td contenteditable="true" id="password1">Password</td>
-                            <td contenteditable="true" id="favAttack1">Favourite Attacker</td>
-                            <td contenteditable="true" id="favDefense1">Favourite Defenser</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td contenteditable="true" id="nickName2">Nickname</td>
-                            <td contenteditable="true" id="firstName2">Firstname</td>
-                            <td contenteditable="true" id="lastName2">LastName</td>
-                            <td contenteditable="true" id="birthdate2">Birthdate</td>
-                            <td contenteditable="true" id="email2">Email</td>
-                            <td contenteditable="true" id="password2">Password</td>
-                            <td contenteditable="true" id="favAttack2">Favourite Attacker</td>
-                            <td contenteditable="true" id="favDefense2">Favourite Defenser</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td contenteditable="true" id="nickName3">Nickname</td>
-                            <td contenteditable="true" id="firstName3">Firstname</td>
-                            <td contenteditable="true" id="lastName3">LastName</td>
-                            <td contenteditable="true" id="birthdate3">Birthdate</td>
-                            <td contenteditable="true" id="email3">Email</td>
-                            <td contenteditable="true" id="password3">Password</td>
-                            <td contenteditable="true" id="favAttack3">Favourite Attacker</td>
-                            <td contenteditable="true" id="favDefense3">Favourite Defenser</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="button" id="save" class="btn btn-primary fs-4 text-light mt-1" onclick="save()">Save</button>
-                <button type="button" id="logOutButton" class="btn btn-primary fs-4 text-light mt-1" onclick="logout()">Logout</button>
+                <div class="mb-5">
+                    <p class="h1 text-light"> Admin panel</p>
+                    <table class="table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nickname</th>
+                                <th scope="col">Firstname</th>
+                                <th scope="col">LastName</th>
+                                <th scope="col">Birthdate</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Favourite Attacker</th>
+                                <th scope="col">Favourite Defenser</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td contenteditable="true" id="nickName1">Nickname</td>
+                                <td contenteditable="true" id="firstName1">Firstname</td>
+                                <td contenteditable="true" id="lastName1">LastName</td>
+                                <td contenteditable="true" id="birthdate1">Birthdate</td>
+                                <td contenteditable="true" id="email1">Email</td>
+                                <td contenteditable="true" id="password1">Password</td>
+                                <td contenteditable="true" id="favAttack1">Favourite Attacker</td>
+                                <td contenteditable="true" id="favDefense1">Favourite Defenser</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td contenteditable="true" id="nickName2">Nickname</td>
+                                <td contenteditable="true" id="firstName2">Firstname</td>
+                                <td contenteditable="true" id="lastName2">LastName</td>
+                                <td contenteditable="true" id="birthdate2">Birthdate</td>
+                                <td contenteditable="true" id="email2">Email</td>
+                                <td contenteditable="true" id="password2">Password</td>
+                                <td contenteditable="true" id="favAttack2">Favourite Attacker</td>
+                                <td contenteditable="true" id="favDefense2">Favourite Defenser</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td contenteditable="true" id="nickName3">Nickname</td>
+                                <td contenteditable="true" id="firstName3">Firstname</td>
+                                <td contenteditable="true" id="lastName3">LastName</td>
+                                <td contenteditable="true" id="birthdate3">Birthdate</td>
+                                <td contenteditable="true" id="email3">Email</td>
+                                <td contenteditable="true" id="password3">Password</td>
+                                <td contenteditable="true" id="favAttack3">Favourite Attacker</td>
+                                <td contenteditable="true" id="favDefense3">Favourite Defenser</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" id="save" class="btn btn-primary fs-4 text-light mt-1" onclick="save()">Save</button>
+                    <button type="button" id="logOutButton" class="btn btn-primary fs-4 text-light mt-1" onclick="logout()">Logout</button>
+                </div>
+
+                <div class="container">
+                    <p class="h1 text-light">Posts</p>
+                    <div class="row mb-3">
+                        <p class="h2 text-light">Post Example</p>
+                        <div class="col">
+                            <div class="card text-white bg-primary mb-3 me-1 col-5" style="max-width: 18rem;">
+                                <div class="card-header h1" id="postHeader" contenteditable="true">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title h2" id="postDate" contenteditable="true">Date</h5>
+                                    <p class="card-text h2" id="postContent" contenteditable="true">News content.</p>
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <a class="btn btn-dark btn-lg likeButton" onclick="postLike(this)"><img src="../imges/thumbs-up-regular.svg" class="img-fluid " width="100%"></a>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="h1 count" id="postRating" contenteditable="true">100</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <a class="btn btn-dark btn-lg dislikeButton" onclick="postDislike(this)"><img src="../imges/thumbs-down-regular.svg" class="img-fluid " width="100%"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" id="addPost" class="btn btn-primary fs-4 text-light mt-1" onclick="addPost()">Add Post</button>
+                        </div>
+                    </div>
+                    <div class="row container" id="postInMain">
+                        <p class="h1 text-light">Post in main page</p>
+                        <div class="col-7">
+                            <table class="table">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Header</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Delete</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
     <footer class="container-fluid row bg-dark m-0 fs-3">
-        <div class="col-lg-4 card bg-transparent border-0 mb-5">
+        <div class="col-lg-2 card bg-transparent border-0 mb-5 mt-5">
             <div class="card-body p-2">
-                <img src="../imges/ubisoftlogo.png" alt="Ubisoft" width="40%" height="auto">
+                <img src="../imges/ubisoftlogo.png" alt="Ubisoft" width="70%" height="auto">
             </div>
         </div>
-        <div class="col-lg-4 card bg-transparent border-0 mt-5 mb-5">
+
+        <div class="col-lg-6 card bg-transparent border-0 mt-5 mb-5">
             <div class="card-body p-0">
                 <h4 class="card-title text-light">Contacts</h4>
-                <p class="card-text text-light"> 5505 St-Laurent Boulevard, #2000 <br> Montreal, Quebec, H2T 1S6 </p>
+                <p class="card-text text-light"> 5505 St-Laurent Boulevard, #2000 <br> Montreal, Quebec, H2T 1S6</p>
                 <p class="card-text text-light">(514) 490-2000</p>
             </div>
+            <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/org/ubisoft_montreal/240335563764/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Ubisoft Montreal</a><a href="https://yandex.ru/maps/21276/montreal/category/software_companies/184105776/?utm_medium=mapframe&utm_source=maps"
+                    style="color:#eee;font-size:12px;position:absolute;top:14px;">Программное обеспечение в Монреале</a><iframe src="https://yandex.ru/map-widget/v1/?ll=-73.597668%2C45.523436&mode=search&oid=240335563764&ol=biz&sctx=ZAAAAAgBEAAaKAoSCYwsmWN5WFLAEXAIVWr2tEZAEhIJDMnJxK2C7D8RfNY1Wg701z8iBgABAgMEBSgKOABAX0gAagJydZ0BzcxMPaABAKgBAL0BkK3RzcIBBvTX9qj%2FBuoBAPIBAPgBAIICB3ViaXNvZnSKAgCSAgCaAgxkZXNrdG9wLW1hcHM%3D&sll=-73.597668%2C45.523436&sspn=0.036738%2C0.015403&text=ubisooft&z=15.24"
+                    width="460" height="300" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div>
         </div>
         <div class="col-lg-4 card bg-transparent border-0 mt-5 mb-5">
             <div class="card-body p-0 justify-content-center">
                 <h4 class="card-title text-light">Important link</h4>
-                <a class="card-text text-light text-decoration-none" href="https://twitter.com/Rainbow6Game">Twitter <img src="../imges/twitter.svg" class="img-fluid" width="10%" alt="">
-          </a>
+                <a class="card-text text-light text-decoration-none" href="https://twitter.com/Rainbow6Game">Twitter <img src="../imges/twitter.svg" class="img-fluid" width="10%" alt=""></a>
+
                 <br>
-                <a class="card-text text-light text-decoration-none" href="https://www.twitch.tv/rainbow6">Twitch <img src="../imges/twitch.svg" class="img-fluid" width="10%" alt="">
-          </a>
+                <a class="card-text text-light text-decoration-none" href="https://www.twitch.tv/rainbow6">Twitch <img src="../imges/twitch.svg" class="img-fluid" width="10%" alt=""> </a>
+
                 <br>
-                <a class="card-text text-light text-decoration-none" href="https://discord.com/invite/ubisoftofficial">Discord <img src="../imges/discord.svg" class="img-fluid" width="10%" alt="">
-          </a>
+                <a class="card-text text-light text-decoration-none" href="https://discord.com/invite/ubisoftofficial">Discord <img src="../imges/discord.svg" class="img-fluid" width="10%" alt=""></a>
+
                 <br>
-                <a class="card-text text-light text-decoration-none" href="https://youtu.be/FtutLA63Cp8?si=EnVIuhoEuTFAR-KZ">YouTube <img src="../imges/youtube.svg" class="img-fluid" width="10%" alt="">
-          </a>
+                <a class="card-text text-light text-decoration-none" href="https://youtu.be/FtutLA63Cp8?si=EnVIuhoEuTFAR-KZ">YouTube  <img src="../imges/youtube.svg" class="img-fluid" width="10%" alt=""> </a>
+
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="../alert.js"></script>
+    <script type="text/javascript" src="posts.js"></script>
     <script type="text/javascript" src="account.js"></script>
 </body>
 
