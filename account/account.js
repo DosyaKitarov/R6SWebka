@@ -55,8 +55,7 @@ window.onload = function() {
         } else {
             adminLogin()
         }
-    }
-    else {
+    } else {
         document.getElementById("reg").style.display = "block";
     }
 }
