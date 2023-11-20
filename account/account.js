@@ -39,7 +39,7 @@ if (MelchiorCBT == null) {
     var MelchiorCBT = localStorage.getItem("MelchiorCBT")
 }
 
-window.onload = function() {
+
     var isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
         var currentLogin = localStorage.getItem("currentLogin")
@@ -58,7 +58,7 @@ window.onload = function() {
     } else {
         document.getElementById("reg").style.display = "block";
     }
-}
+
 
 function adminLogin() {
     var reg = document.getElementById("reg");
