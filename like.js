@@ -45,10 +45,12 @@ function postLike(button) {
         if (!likeButton.disabled && !dislikeButton.disabled) {
             countElement.textContent = currentCount + 1;
             likeButton.disabled = true;
+            countElement.classList.add("text-success");
         } else if (!likeButton.disabled && dislikeButton.disabled) {
             countElement.textContent = currentCount + 2;
             likeButton.disabled = true;
             dislikeButton.disabled = false;
+            countElement.classList.replace("text-danger", "text-success");
         }
     } else {
         alert("Please Log in!")
@@ -68,10 +70,12 @@ function postDislike(button) {
         if (!dislikeButton.disabled && !likeButton.disabled) {
             countElement.textContent = currentCount - 1;
             dislikeButton.disabled = true;
+            countElement.classList.add("text-danger");
         } else if (!dislikeButton.disabled && likeButton.disabled) {
             countElement.textContent = currentCount - 2;
             likeButton.disabled = false;
             dislikeButton.disabled = true;
+            countElement.classList.replace("text-success", "text-danger");
         }
     } else {
         alert("Please Log in!");

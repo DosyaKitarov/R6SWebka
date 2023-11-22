@@ -12,7 +12,11 @@ if (postArray.length != 0) {
 function createCard(post) {
 
     var cardDiv = document.createElement("div");
-    cardDiv.setAttribute("class", "card text-white bg-dark mb-3 me-1 col-3");
+    if (post.postColor == "bg-dark") {
+        cardDiv.setAttribute("class", "card text-white bg-dark mb-3 me-1 col-3");
+    } else {
+        cardDiv.setAttribute("class", "card text-dark bg-light mb-3 me-1 col-3");
+    }
     cardDiv.setAttribute("style", "max-width: 18rem;");
 
 
