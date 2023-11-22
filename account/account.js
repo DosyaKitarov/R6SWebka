@@ -9,9 +9,9 @@ if (KitareCBT == null) {
         password: "Kitare2004",
         pfp: "imges/KitarePFP.png",
         favAttackName: "Blitz",
-        favAttack: "../operators/imges/attack/" + favAttackName.toLowerCase() + ".png",
+        favAttack: "../operators/imges/attack/" + "blitz.png",
         favDefenseName: "Kapkan",
-        favDefense: "../operators/imges/defense/" + favDefenseName.toLowerCase() + ".png",
+        favDefense: "../operators/imges/defense/" + "kapkan.png",
         rank: "imges/platinum5.png",
         rankName: "Platinum 5"
     };
@@ -29,9 +29,9 @@ if (MelchiorCBT == null) {
         password: "Isko228",
         pfp: "imges/MelchiorPFP.png",
         favAttackName: "Ace",
-        favAttack: "../operators/imges/attack/" + favAttackName.toLowerCase() + ".png",
+        favAttack: "../operators/imges/attack/" + "ace.png",
         favDefenseName: "Alibi",
-        favDefense: "../operators/imges/defense/" + favDefenseName.toLowerCase() + ".png",
+        favDefense: "../operators/imges/defense/" + "alibi.png",
         rank: "imges/bronze4.png",
         rankName: "Bronze 4"
     };
@@ -39,7 +39,7 @@ if (MelchiorCBT == null) {
     var MelchiorCBT = localStorage.getItem("MelchiorCBT")
 }
 
-
+window.onload = function() {
     var isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
         var currentLogin = localStorage.getItem("currentLogin")
@@ -58,6 +58,7 @@ if (MelchiorCBT == null) {
     } else {
         document.getElementById("reg").style.display = "block";
     }
+}
 
 
 function adminLogin() {
