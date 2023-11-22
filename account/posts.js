@@ -3,10 +3,10 @@ var postArray = JSON.parse(localStorage.getItem("postArray")) || [];
 updateTable();
 
 function addPostBlack() {
-    var postHeader = document.getElementById("postHeader").innerText;
-    var postDate = document.getElementById("postDate").innerText;
-    var postContent = document.getElementById("postContent").innerText;
-    var postRating = document.getElementById("postRating").innerText;
+    var postHeader = document.getElementById("postHeaderBlack").innerText;
+    var postDate = document.getElementById("postDateBlack").innerText;
+    var postContent = document.getElementById("postContentBlack").innerText;
+    var postRating = document.getElementById("postRatingBlack").innerText;
     var post = {
         postHeader: postHeader,
         postDate: postDate,
@@ -20,10 +20,10 @@ function addPostBlack() {
 }
 
 function addPostWhite() {
-    var postHeader = document.getElementById("postHeader").innerText;
-    var postDate = document.getElementById("postDate").innerText;
-    var postContent = document.getElementById("postContent").innerText;
-    var postRating = document.getElementById("postRating").innerText;
+    var postHeader = document.getElementById("postHeaderWhite").innerText;
+    var postDate = document.getElementById("postDateWhite").innerText;
+    var postContent = document.getElementById("postContentWhite").innerText;
+    var postRating = document.getElementById("postRatingWhite").innerText;
     var post = {
         postHeader: postHeader,
         postDate: postDate,
