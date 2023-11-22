@@ -55,7 +55,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label fs-4 text-light">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" class="form-control" id="loginPassword">
                     </div>
                     <button type="submit" class="btn btn-primary fs-4 text-light me-4" onclick="login()">Submit</button>
                 </form>
@@ -82,7 +82,7 @@
                         <input type="email" class="form-control" id="email">
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label fs-4 text-light">Password</label>
+                        <label for="password" class="form-label fs-4 text-light" id="passwordLabel">Password</label>
                         <input type="password" class="form-control" id="password">
                     </div>
                     <button type="submit" class="btn btn-primary fs-4 text-light me-4" onclick="registerAccount()">Submit</button>
@@ -192,12 +192,12 @@
                     <button type="button" id="logOutButton" class="btn btn-primary fs-4 text-light mt-1" onclick="logout()">Logout</button>
                 </div>
 
-                <div class="container">
+                <div class="container-fluid">
                     <p class="h1 text-light">Posts</p>
                     <div class="row mb-3">
                         <p class="h2 text-light">Post Example</p>
-                        <div class="col">
-                            <div class="card text-white bg-dark mb-3 me-1 col-5" style="max-width: 18rem;">
+                        <div class="col-6">
+                            <div class="card text-white bg-dark mb-3 me-1 " style="max-width: 18rem;">
                                 <div class="card-header h1" id="postHeader" contenteditable="true">Header</div>
                                 <div class="card-body">
                                     <h5 class="card-title h2" id="postDate" contenteditable="true">Date</h5>
@@ -215,7 +215,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" id="addPost" class="btn btn-primary fs-4 text-light mt-1" onclick="addPost()">Add Post</button>
+                            <button type="button" id="addPost" class="btn btn-primary fs-4 text-light mt-1" onclick="addPostBlack()">Add Post</button>
+                        </div>
+                        <div class="col-6">
+                            <div class="card text-dark bg-light mb-3 me-1 " style="max-width: 18rem;">
+                                <div class="card-header h1 text-dark" id="postHeader" contenteditable="true">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title h2" id="postDate" contenteditable="true">Date</h5>
+                                    <p class="card-text h2" id="postContent" contenteditable="true">News content.</p>
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <a class="btn btn-primary btn-lg likeButton" onclick="postLike(this)"><img src="../imges/thumbs-up-regular.svg" class="img-fluid " width="100%"></a>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="h1 count" id="postRating" contenteditable="true">100</p>
+                                        </div>
+                                        <div class="col-4">
+                                            <a class="btn btn-primary btn-lg dislikeButton" onclick="postDislike(this)"><img src="../imges/thumbs-down-regular.svg" class="img-fluid " width="100%"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" id="addPost" class="btn btn-primary fs-4 text-light mt-1" onclick="addPostWhite()">Add Post</button>
                         </div>
                     </div>
                     <div class="row container" id="postInMain">
@@ -231,15 +252,14 @@
 
                                     </tr>
                                 </thead>
-                                <tbody>
-
-                                </tbody>
+                                <tbody></tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
     </main>
     <footer class="container-fluid row bg-dark m-0 fs-3">
         <div class="col-lg-2 card bg-transparent border-0 mb-5 mt-5">

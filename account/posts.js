@@ -2,7 +2,7 @@ var postArray = JSON.parse(localStorage.getItem("postArray")) || [];
 
 updateTable();
 
-function addPost() {
+function addPostBlack() {
     var postHeader = document.getElementById("postHeader").innerText;
     var postDate = document.getElementById("postDate").innerText;
     var postContent = document.getElementById("postContent").innerText;
@@ -11,7 +11,25 @@ function addPost() {
         postHeader: postHeader,
         postDate: postDate,
         postContent: postContent,
-        postRating: postRating
+        postRating: postRating,
+        postColor: "bg-dark"
+    };
+    postArray.push(post);
+    localStorage.setItem("postArray", JSON.stringify(postArray));
+    updateTable();
+}
+
+function addPostWhite() {
+    var postHeader = document.getElementById("postHeader").innerText;
+    var postDate = document.getElementById("postDate").innerText;
+    var postContent = document.getElementById("postContent").innerText;
+    var postRating = document.getElementById("postRating").innerText;
+    var post = {
+        postHeader: postHeader,
+        postDate: postDate,
+        postContent: postContent,
+        postRating: postRating,
+        postColor: "bg-light"
     };
     postArray.push(post);
     localStorage.setItem("postArray", JSON.stringify(postArray));
@@ -23,7 +41,7 @@ function deleteCell(button) {
     console.log(index)
     postArray.splice(index, 1);
     localStorage.setItem("postArray", JSON.stringify(postArray));
-    location.reload();
+    updateTable();
 }
 
 function updateTable() {

@@ -183,12 +183,12 @@ function save() {
     localStorage.setItem("KitareCBT", JSON.stringify(KitareCBT));
     localStorage.setItem("MelchiorCBT", JSON.stringify(MelchiorCBT));
 
-    alert("Данные успешно сохранены!");
+    alert("Data saved!");
 }
 
 
-function registerAccount() {
 
+function registerAccount() {
     var nickname = document.getElementById("nickname").value;
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
@@ -196,6 +196,11 @@ function registerAccount() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
+
+    if (!nickname || !firstName || !lastName || !birthdate || !email || !password) {
+        alert("Please fill in all required fields.");
+        return;
+    }
     var favOp = "Recruit";
     var account = {
         nickname: nickname,
@@ -212,17 +217,20 @@ function registerAccount() {
         rank: "imges/noRank.png",
         rankName: "UNRANKED"
     };
+
+
     alert("Success");
     var accountJSON = JSON.stringify(account);
-
     localStorage.setItem("account", accountJSON);
 
     toggleForm();
 }
 
+
+
 function login() {
     var loginEmail = document.getElementById("exampleInputEmail1").value;
-    var loginPassword = document.getElementById("exampleInputPassword1").value;
+    var loginPassword = document.getElementById("loginPassword").value;
 
     var accountJSON = localStorage.getItem("account");
     var KitareCBT = JSON.parse(localStorage.getItem("KitareCBT"));
