@@ -214,7 +214,7 @@ function registerAccount() {
         favAttack: "imges/" + favOp.toLowerCase() + ".png",
         favDefenseName: favOp,
         favDefense: "imges/" + favOp.toLowerCase() + ".png",
-        rank: "imges/noRank.png",
+        rank: "imges/norank.png",
         rankName: "UNRANKED"
     };
 
