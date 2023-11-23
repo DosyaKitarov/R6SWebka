@@ -29,7 +29,7 @@ function sendComment(button, index) {
     else if (currentLogin == "Melch1or.CBT")
         imgElement.src = "account/imges/MelchiorPFP.png";
     else
-        imgElement.src = "account/imges/nopfp.webp";
+        imgElement.src = "account/imges/noPFP.webp";
     imgElement.className = "img-thumbnail rounded";
     imgElement.style.width = "100%";
 
@@ -74,7 +74,7 @@ function sendComment(button, index) {
 
     var text = document.createElement("p");
     text.setAttribute("class", "h2");
-    yourText = document.getElementById("textarea").textContent;
+    yourText = document.getElementById(`textarea${index}`).textContent;
     text.innerText = yourText
 
     var buttonDiv = document.createElement("div");
@@ -250,7 +250,7 @@ function createCard(post, index) {
         else if (post.postComments[i].user == "Melch1or.CBT")
             imgElement.src = "account/imges/MelchiorPFP.png";
         else
-            imgElement.src = "account/imges/noPFP.webp";
+            imgElement.src = "account/imges/nopfp.webp";
         imgElement.className = "img-thumbnail rounded";
         imgElement.style.width = "100%";
 
@@ -331,7 +331,7 @@ function createCard(post, index) {
     yourCommentary.innerText = "Your commentary";
 
     var commentTextarea = document.createElement("td");
-    commentTextarea.id = "textarea";
+    commentTextarea.id = `textarea${index}`;
     commentTextarea.contentEditable = true;
 
     var sendButton = document.createElement("button");
