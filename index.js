@@ -29,7 +29,7 @@ function sendComment(button, index) {
     else if (currentLogin == "Melch1or.CBT")
         imgElement.src = "account/imges/MelchiorPFP.png";
     else
-        imgElement.src = "account/imges/noPFP.webp";
+        imgElement.src = "account/imges/nopfp.webp";
     imgElement.className = "img-thumbnail rounded";
     imgElement.style.width = "100%";
 
