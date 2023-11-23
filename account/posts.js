@@ -12,7 +12,9 @@ function addPostBlack() {
         postDate: postDate,
         postContent: postContent,
         postRating: postRating,
-        postColor: "bg-dark"
+        postColor: "bg-dark",
+        postComments: []
+
     };
     postArray.push(post);
     localStorage.setItem("postArray", JSON.stringify(postArray));
@@ -29,7 +31,9 @@ function addPostWhite() {
         postDate: postDate,
         postContent: postContent,
         postRating: postRating,
-        postColor: "bg-light"
+        postColor: "bg-light",
+        postComments: [],
+        postCommentsCount: 0
     };
     postArray.push(post);
     localStorage.setItem("postArray", JSON.stringify(postArray));
@@ -39,7 +43,7 @@ function addPostWhite() {
 function deleteCell(button) {
     var index = button.closest('.tr').querySelector('.th').innerText;
     console.log(index)
-    postArray.splice(index, 1);
+    postArray.splice(index - 1, 1);
     localStorage.setItem("postArray", JSON.stringify(postArray));
     updateTable();
 }
@@ -55,7 +59,7 @@ function updateTable() {
         var postNumberCell = document.createElement("th");
         postNumberCell.setAttribute("scope", "row");
         postNumberCell.classList.add("th")
-        postNumberCell.innerText = i;
+        postNumberCell.innerText = i + 1;
 
         var headerCell = document.createElement("td");
         headerCell.innerText = postArray[i].postHeader;

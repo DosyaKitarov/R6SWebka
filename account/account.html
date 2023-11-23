@@ -136,7 +136,7 @@
                 </div>
             </div>
             <div class="col-8 mt-5" id="adminPanel" style="display: none;">
-                <div class="mb-5">
+                <div class="mb-5" id="usersPanel">
                     <p class="h1 text-light"> Admin panel</p>
                     <table class="table">
                         <thead class="table-dark">
@@ -150,42 +150,11 @@
                                 <th scope="col">Password</th>
                                 <th scope="col">Favourite Attacker</th>
                                 <th scope="col">Favourite Defenser</th>
+                                <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td contenteditable="true" id="nickName1">Nickname</td>
-                                <td contenteditable="true" id="firstName1">Firstname</td>
-                                <td contenteditable="true" id="lastName1">LastName</td>
-                                <td contenteditable="true" id="birthdate1">Birthdate</td>
-                                <td contenteditable="true" id="email1">Email</td>
-                                <td contenteditable="true" id="password1">Password</td>
-                                <td contenteditable="true" id="favAttack1">Favourite Attacker</td>
-                                <td contenteditable="true" id="favDefense1">Favourite Defenser</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td contenteditable="true" id="nickName2">Nickname</td>
-                                <td contenteditable="true" id="firstName2">Firstname</td>
-                                <td contenteditable="true" id="lastName2">LastName</td>
-                                <td contenteditable="true" id="birthdate2">Birthdate</td>
-                                <td contenteditable="true" id="email2">Email</td>
-                                <td contenteditable="true" id="password2">Password</td>
-                                <td contenteditable="true" id="favAttack2">Favourite Attacker</td>
-                                <td contenteditable="true" id="favDefense2">Favourite Defenser</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td contenteditable="true" id="nickName3">Nickname</td>
-                                <td contenteditable="true" id="firstName3">Firstname</td>
-                                <td contenteditable="true" id="lastName3">LastName</td>
-                                <td contenteditable="true" id="birthdate3">Birthdate</td>
-                                <td contenteditable="true" id="email3">Email</td>
-                                <td contenteditable="true" id="password3">Password</td>
-                                <td contenteditable="true" id="favAttack3">Favourite Attacker</td>
-                                <td contenteditable="true" id="favDefense3">Favourite Defenser</td>
-                            </tr>
+
                         </tbody>
                     </table>
                     <button type="button" id="save" class="btn btn-primary fs-4 text-light mt-1" onclick="save()">Save</button>
@@ -198,7 +167,7 @@
                         <p class="h2 text-light">Post Example</p>
                         <div class="col-6">
                             <div class="card text-white bg-dark mb-3 me-1 " style="max-width: 18rem;">
-                                <div class="card-header h1" id="postHeaderBlack" contenteditable="true">Header</div>
+                                <div class="card-header h1 border-light" id="postHeaderBlack" contenteditable="true">Header</div>
                                 <div class="card-body">
                                     <h5 class="card-title h2" id="postDateBlack" contenteditable="true">Date</h5>
                                     <p class="card-text h2" id="postContentBlack" contenteditable="true">News content.</p>
@@ -219,7 +188,7 @@
                         </div>
                         <div class="col-6">
                             <div class="card text-dark bg-light mb-3 me-1 " style="max-width: 18rem;">
-                                <div class="card-header h1 " id="postHeaderWhite" contenteditable="true">Header</div>
+                                <div class="card-header h1 border-dark " id="postHeaderWhite" contenteditable="true">Header</div>
                                 <div class="card-body">
                                     <h5 class="card-title h2" id="postDateWhite" contenteditable="true">Date</h5>
                                     <p class="card-text h2" id="postContentWhite" contenteditable="true">News content.</p>
@@ -249,7 +218,6 @@
                                         <th scope="col">Header</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Delete</th>
-
                                     </tr>
                                 </thead>
                                 <tbody></tbody>

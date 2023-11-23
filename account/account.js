@@ -18,6 +18,7 @@ if (KitareCBT == null) {
     localStorage.setItem("KitareCBT", JSON.stringify(KitareCBT))
     var KitareCBT = localStorage.getItem("KitareCBT")
 }
+var usersArray = JSON.parse(localStorage.getItem("usersArray")) || []
 var MelchiorCBT = JSON.parse(localStorage.getItem("MelchiorCBT"))
 if (MelchiorCBT == null) {
     MelchiorCBT = {
@@ -43,17 +44,21 @@ window.onload = function() {
     var isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
         var currentLogin = localStorage.getItem("currentLogin")
-        if (currentLogin == "user") {
-            var userInformation = JSON.parse(localStorage.getItem("account"));
-            usersLogin(userInformation);
-        } else if (currentLogin == "kitare") {
+        if (currentLogin == KitareCBT.nickname) {
             var userInformation = JSON.parse(localStorage.getItem("KitareCBT"));
             usersLogin(userInformation);
-        } else if (currentLogin == "melchior") {
+        } else if (currentLogin == MelchiorCBT.nickname) {
             var userInformation = JSON.parse(localStorage.getItem("MelchiorCBT"));
             usersLogin(userInformation);
-        } else {
+        } else if (currentLogin == "admin") {
             adminLogin()
+        } else {
+            for (var i = 0; i < usersArray.length; i++) {
+                if (currentLogin == usersArray[i].nickname) {
+                    var userInformation = usersArray[i];
+                    usersLogin(userInformation);
+                }
+            }
         }
     } else {
         document.getElementById("reg").style.display = "block";
@@ -66,42 +71,156 @@ function adminLogin() {
     var toggleButton = document.getElementById("toggleButton");
     var accountInfo = document.getElementById("accountInfo");
     var adminPanel = document.getElementById("adminPanel");
+    var tableBody = document.querySelector("#usersPanel tbody");
+    tableBody.innerHTML = "";
+
     reg.style.display = "none";
     toggleButton.style.display = "none";
     accountInfo.style.display = "none";
     adminPanel.style.display = "block";
 
-    var KitareCBT = JSON.parse(localStorage.getItem("KitareCBT"));
-    var MelchiorCBT = JSON.parse(localStorage.getItem("MelchiorCBT"));
+    createUs(KitareCBT)
+    createUs(MelchiorCBT)
+    for (var i = 0; i < usersArray.length; i++) {
+        var newRow = document.createElement("tr");
+        newRow.classList.add("tr")
 
-    document.getElementById("nickName1").textContent = KitareCBT.nickname;
-    document.getElementById("firstName1").textContent = KitareCBT.firstName;
-    document.getElementById("lastName1").textContent = KitareCBT.lastName;
-    document.getElementById("birthdate1").textContent = KitareCBT.birthdate;
-    document.getElementById("email1").textContent = KitareCBT.email;
-    document.getElementById("password1").textContent = KitareCBT.password;
-    document.getElementById("favAttack1").textContent = KitareCBT.favAttackName;
-    document.getElementById("favDefense1").textContent = KitareCBT.favDefenseName;
+        var NumberCell = document.createElement("th");
+        NumberCell.setAttribute("scope", "row");
+        NumberCell.classList.add("th")
+        NumberCell.innerText = i + 3;
 
-    document.getElementById("nickName2").textContent = MelchiorCBT.nickname;
-    document.getElementById("firstName2").textContent = MelchiorCBT.firstName;
-    document.getElementById("lastName2").textContent = MelchiorCBT.lastName;
-    document.getElementById("birthdate2").textContent = MelchiorCBT.birthdate;
-    document.getElementById("email2").textContent = MelchiorCBT.email;
-    document.getElementById("password2").textContent = MelchiorCBT.password;
-    document.getElementById("favAttack2").textContent = MelchiorCBT.favAttackName;
-    document.getElementById("favDefense2").textContent = MelchiorCBT.favDefenseName;
+        var nickname = document.createElement("td");
+        nickname.innerText = usersArray[i].nickname;
+        nickname.id = "nickname" + NumberCell;
+        nickname.contentEditable = true;
 
-    var User = JSON.parse(localStorage.getItem("account"));
+        var firstName = document.createElement("td");
+        firstName.innerText = usersArray[i].firstName;
+        firstName.id = "firstName" + NumberCell;
+        firstName.contentEditable = true;
 
-    document.getElementById("nickName3").textContent = User.nickname;
-    document.getElementById("firstName3").textContent = User.firstName;
-    document.getElementById("lastName3").textContent = User.lastName;
-    document.getElementById("birthdate3").textContent = User.birthdate;
-    document.getElementById("email3").textContent = User.email;
-    document.getElementById("password3").textContent = User.password;
-    document.getElementById("favAttack3").textContent = User.favAttackName;
-    document.getElementById("favDefense3").textContent = User.favDefenseName;
+        var lastName = document.createElement("td");
+        lastName.innerText = usersArray[i].lastName;
+        lastName.id = "lastName" + NumberCell;
+        lastName.contentEditable = true;
+
+        var birthdate = document.createElement("td");
+        birthdate.innerText = usersArray[i].birthdate;
+        birthdate.id = "birthdate" + NumberCell;
+        birthdate.contentEditable = true;
+
+        var email = document.createElement("td");
+        email.innerText = usersArray[i].email;
+        email.id = "email" + NumberCell;
+        email.contentEditable = true;
+
+        var password = document.createElement("td");
+        password.innerText = usersArray[i].password;
+        password.id = "password" + NumberCell;
+        password.contentEditable = true;
+
+        var favAttackName = document.createElement("td");
+        favAttackName.innerText = usersArray[i].favAttackName;
+        favAttackName.id = "favAttackName" + NumberCell;
+        favAttackName.contentEditable = true;
+
+        var favDefenseName = document.createElement("td");
+        favDefenseName.innerText = usersArray[i].favDefenseName;
+        favDefenseName.id = "favDefenseName" + NumberCell;
+        favDefenseName.contentEditable = true;
+
+        var deleteBox = document.createElement("td");
+        deleteBox.setAttribute("width", "20%");
+
+        var deleteButton = document.createElement("button");
+        deleteButton.setAttribute("type", "button");
+        deleteButton.setAttribute("class", "btn btn-primary fs-4 text-light mt-1");
+        deleteButton.textContent = "Delete";
+        deleteButton.setAttribute("onClick", "deleteAcc(this)")
+
+        deleteBox.appendChild(deleteButton);
+        newRow.appendChild(NumberCell);
+        newRow.appendChild(nickname);
+        newRow.appendChild(firstName);
+        newRow.appendChild(lastName);
+        newRow.appendChild(birthdate);
+        newRow.appendChild(email);
+        newRow.appendChild(password);
+        newRow.appendChild(favAttackName);
+        newRow.appendChild(favDefenseName);
+        newRow.appendChild(deleteBox);
+
+        tableBody.appendChild(newRow);
+    }
+
+}
+
+function createUs(user) {
+    var tableBody = document.querySelector("#usersPanel tbody");
+    var newRow = document.createElement("tr");
+    newRow.classList.add("tr")
+
+    var NumberCell = document.createElement("th");
+    NumberCell.setAttribute("scope", "row");
+    NumberCell.classList.add("th")
+    if (user == KitareCBT) {
+        NumberCell.innerText = 1;
+    } else {
+        NumberCell.innerText = 2;
+    }
+
+
+    var nickname = document.createElement("td");
+    nickname.innerText = user.nickname;
+    nickname.id = "nickname" + NumberCell;
+    nickname.contentEditable = true;
+
+    var firstName = document.createElement("td");
+    firstName.innerText = user.firstName;
+    firstName.id = "firstName" + NumberCell;
+    firstName.contentEditable = true;
+
+    var lastName = document.createElement("td");
+    lastName.innerText = user.lastName;
+    lastName.id = "lastName" + NumberCell;
+    lastName.contentEditable = true;
+
+    var birthdate = document.createElement("td");
+    birthdate.innerText = user.birthdate;
+    birthdate.id = "birthdate" + NumberCell;
+    birthdate.contentEditable = true;
+
+    var email = document.createElement("td");
+    email.innerText = user.email;
+    email.id = "email" + NumberCell;
+    email.contentEditable = true;
+
+    var password = document.createElement("td");
+    password.innerText = user.password;
+    password.id = "password" + NumberCell;
+    password.contentEditable = true;
+
+    var favAttackName = document.createElement("td");
+    favAttackName.innerText = user.favAttackName;
+    favAttackName.id = "favAttackName" + NumberCell;
+    favAttackName.contentEditable = true;
+
+    var favDefenseName = document.createElement("td");
+    favDefenseName.innerText = user.favDefenseName;
+    favDefenseName.id = "favDefenseName" + NumberCell;
+    favDefenseName.contentEditable = true;
+
+    newRow.appendChild(NumberCell);
+    newRow.appendChild(nickname);
+    newRow.appendChild(firstName);
+    newRow.appendChild(lastName);
+    newRow.appendChild(birthdate);
+    newRow.appendChild(email);
+    newRow.appendChild(password);
+    newRow.appendChild(favAttackName);
+    newRow.appendChild(favDefenseName);
+    tableBody.appendChild(newRow);
 }
 
 function usersLogin(userInformation) {
@@ -165,21 +284,24 @@ function save() {
     MelchiorCBT.favAttack = "../operators/imges/attack/" + document.getElementById("favAttack2").textContent.toLowerCase() + ".png";
     MelchiorCBT.favDefense = "../operators/imges/defense/" + document.getElementById("favDefense2").textContent.toLowerCase() + ".png";
 
-    var user = {
-        nickname: document.getElementById("nickName3").textContent,
-        firstName: document.getElementById("firstName3").textContent,
-        lastName: document.getElementById("lastName3").textContent,
-        birthdate: document.getElementById("birthdate3").textContent,
-        email: document.getElementById("email3").textContent,
-        password: document.getElementById("password3").textContent,
-        favAttackName: document.getElementById("favAttack3").textContent,
-        favDefenseName: document.getElementById("favDefense3").textContent,
-        favAttack: "../operators/imges/attack/" + document.getElementById("favAttack3").textContent.toLowerCase() + ".png",
-        favDefense: "../operators/imges/defense/" + document.getElementById("favDefense3").textContent.toLowerCase() + ".png"
-    };
+    for (var i = 0; i < usersArray.length; i++) {
+        var user = {
+            nickname: document.getElementById("nickName" + NumberCell).textContent,
+            firstName: document.getElementById("firstName" + NumberCell).textContent,
+            lastName: document.getElementById("lastName" + NumberCell).textContent,
+            birthdate: document.getElementById("birthdate" + NumberCell).textContent,
+            email: document.getElementById("email" + NumberCell).textContent,
+            password: document.getElementById("password" + NumberCell).textContent,
+            favAttackName: document.getElementById("favAttack" + NumberCell).textContent,
+            favDefenseName: document.getElementById("favDefense" + NumberCell).textContent,
+            favAttack: "../operators/imges/attack/" + document.getElementById("favAttack" + NumberCell).textContent.toLowerCase() + ".png",
+            favDefense: "../operators/imges/defense/" + document.getElementById("favDefense" + NumberCell).textContent.toLowerCase() + ".png"
+        };
+        usersArray[i] = user
+    }
 
-    var accountJSON = JSON.stringify(user);
-    localStorage.setItem("account", accountJSON);
+    var accountJSON = JSON.stringify(usersArray);
+    localStorage.setItem("usersArray", accountJSON);
     localStorage.setItem("KitareCBT", JSON.stringify(KitareCBT));
     localStorage.setItem("MelchiorCBT", JSON.stringify(MelchiorCBT));
 
@@ -187,6 +309,12 @@ function save() {
 }
 
 
+function deleteAcc(button) {
+    var index = button.closest('.tr').querySelector('.th').innerText;
+    usersArray.splice(index - 3, 1);
+    localStorage.setItem("usersArray", JSON.stringify(usersArray));
+    adminLogin()
+}
 
 function registerAccount() {
     var nickname = document.getElementById("nickname").value;
@@ -214,14 +342,14 @@ function registerAccount() {
         favAttack: "imges/" + favOp.toLowerCase() + ".png",
         favDefenseName: favOp,
         favDefense: "imges/" + favOp.toLowerCase() + ".png",
-        rank: "imges/norank.png",
+        rank: "imges/noRank.png",
         rankName: "UNRANKED"
     };
 
-
+    usersArray.push(account)
     alert("Success");
-    var accountJSON = JSON.stringify(account);
-    localStorage.setItem("account", accountJSON);
+    var usersJSON = JSON.stringify(usersArray);
+    localStorage.setItem("usersArray", usersJSON);
 
     toggleForm();
 }
@@ -232,34 +360,34 @@ function login() {
     var loginEmail = document.getElementById("exampleInputEmail1").value;
     var loginPassword = document.getElementById("loginPassword").value;
 
-    var accountJSON = localStorage.getItem("account");
     var KitareCBT = JSON.parse(localStorage.getItem("KitareCBT"));
     var MelchiorCBT = JSON.parse(localStorage.getItem("MelchiorCBT"));
-    if (accountJSON) {
-        var account = JSON.parse(accountJSON);
 
-        if (loginEmail.toLowerCase() === account.email.toLowerCase() && loginPassword === account.password) {
-            alert("Вход выполнен успешно!");
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("currentLogin", "user");
-        } else if (loginEmail.toLowerCase() === KitareCBT.email.toLowerCase() && loginPassword === KitareCBT.password) {
-            alert("Вход выполнен успешно!");
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("currentLogin", "kitare")
-        } else if (loginEmail.toLowerCase() === MelchiorCBT.email.toLowerCase() && loginPassword === MelchiorCBT.password) {
-            alert("Вход выполнен успешно!");
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("currentLogin", "melchior")
-        } else if (loginEmail.toLowerCase() === "admin@admin.com" && loginPassword === "root") {
-            alert("Вход выполнен успешно!");
-            localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("currentLogin", "admin")
-        } else {
-            alert("Ошибка входа. Пожалуйста, проверьте введенные данные.");
-        }
+
+    if (loginEmail.toLowerCase() === KitareCBT.email.toLowerCase() && loginPassword === KitareCBT.password) {
+        alert("Succeed!");
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("currentLogin", KitareCBT.nickname)
+    } else if (loginEmail.toLowerCase() === MelchiorCBT.email.toLowerCase() && loginPassword === MelchiorCBT.password) {
+        alert("Succeed!");
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("currentLogin", MelchiorCBT.nickname)
+    } else if (loginEmail.toLowerCase() === "admin@admin.com" && loginPassword === "root") {
+        alert("Succeed!");
+        localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("currentLogin", "admin")
     } else {
-        alert("Аккаунт не найден. Пожалуйста, зарегистрируйтесь.");
+        for (var i = 0; i < usersArray.length; i++) {
+            if (loginEmail === usersArray[i].email.toLowerCase() && loginPassword === usersArray[i].password) {
+                alert("Succeed!");
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("currentLogin", usersArray[i].nickname)
+                location.reload()
+            }
+        }
+        alert("Ошибка входа. Пожалуйста, проверьте введенные данные.");
     }
+
 }
 
 function logout() {
