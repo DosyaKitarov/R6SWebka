@@ -261,7 +261,7 @@ function createCard(post, index) {
         name.setAttribute("class", "row");
 
         var nameText = document.createElement("p");
-        if (post.color == "bg-dark") {
+        if (post.postColor == "bg-dark") {
             nameText.setAttribute("class", "h3 text-light");
         } else {
             nameText.setAttribute("class", "h3 text-dark");
