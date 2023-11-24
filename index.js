@@ -29,7 +29,7 @@ function sendComment(button, index) {
     else if (currentLogin == "Melch1or.CBT")
         imgElement.src = "account/imges/MelchiorPFP.png";
     else
-        imgElement.src = "account/imges/nopfp.webp";
+        imgElement.src = "account/imges/noPFP.webp";
     imgElement.className = "img-thumbnail rounded";
     imgElement.style.width = "100%";
 
@@ -104,8 +104,8 @@ function sendComment(button, index) {
         date: dt,
         comment: yourText
     }
-    postArray[index].postCommentsCount++;
-    postArray[index].postComments.push(commentary)
+    postArray[index].postComments.push(commentary);
+    postArray[index].postCommentsCount = postArray[index].postComments.length;
     localStorage.setItem("postArray", JSON.stringify(postArray));
 }
 
@@ -134,7 +134,7 @@ function deleteComment(postIndex, comIndex) {
 
     postArray[postIndex].postComments.splice(comIndex, 1);
 
-    postArray[postIndex].postCommentsCount--;
+    postArray[index].postCommentsCount = postArray[index].postComments.length;
 
     localStorage.setItem("postArray", JSON.stringify(postArray));
 
