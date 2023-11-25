@@ -13,11 +13,17 @@ function addPostBlack() {
         postContent: postContent,
         postRating: postRating,
         postColor: "bg-dark",
-        postComments: []
-
+        postComments: [],
+        postCommentsCount: 0
     };
     postArray.push(post);
     localStorage.setItem("postArray", JSON.stringify(postArray));
+    anim = document.getElementById("blackPostExmpl")
+    anim.classList.toggle('wobble-hor-top');
+    setTimeout(function() {
+        anim.classList.remove('wobble-hor-top');
+    }, 800);
+
     updateTable();
 }
 
@@ -37,6 +43,11 @@ function addPostWhite() {
     };
     postArray.push(post);
     localStorage.setItem("postArray", JSON.stringify(postArray));
+    anim = document.getElementById("whitePostExmpl")
+    anim.classList.toggle('wobble-hor-top')
+    setTimeout(function() {
+        anim.classList.remove('wobble-hor-top');
+    }, 800);
     updateTable();
 }
 

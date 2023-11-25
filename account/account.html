@@ -15,6 +15,71 @@
             font-family: 'Scout Condensed Bold';
             background-image: url(https://static-dm.ubisoft.com/siege/prod/7907369fa863844fc1ae432a9ca0e610.jpg);
         }
+        
+        .wobble-hor-top {
+            -webkit-animation: wobble-hor-top 0.8s both;
+            animation: wobble-hor-top 0.8s both;
+        }
+        
+        @-webkit-keyframes wobble-hor-top {
+            0%,
+            100% {
+                -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+            }
+            15% {
+                -webkit-transform: translateX(-30px) rotate(6deg);
+                transform: translateX(-30px) rotate(6deg);
+            }
+            30% {
+                -webkit-transform: translateX(15px) rotate(-6deg);
+                transform: translateX(15px) rotate(-6deg);
+            }
+            45% {
+                -webkit-transform: translateX(-15px) rotate(3.6deg);
+                transform: translateX(-15px) rotate(3.6deg);
+            }
+            60% {
+                -webkit-transform: translateX(9px) rotate(-2.4deg);
+                transform: translateX(9px) rotate(-2.4deg);
+            }
+            75% {
+                -webkit-transform: translateX(-6px) rotate(1.2deg);
+                transform: translateX(-6px) rotate(1.2deg);
+            }
+        }
+        
+        @keyframes wobble-hor-top {
+            0%,
+            100% {
+                -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+            }
+            15% {
+                -webkit-transform: translateX(-30px) rotate(6deg);
+                transform: translateX(-30px) rotate(6deg);
+            }
+            30% {
+                -webkit-transform: translateX(15px) rotate(-6deg);
+                transform: translateX(15px) rotate(-6deg);
+            }
+            45% {
+                -webkit-transform: translateX(-15px) rotate(3.6deg);
+                transform: translateX(-15px) rotate(3.6deg);
+            }
+            60% {
+                -webkit-transform: translateX(9px) rotate(-2.4deg);
+                transform: translateX(9px) rotate(-2.4deg);
+            }
+            75% {
+                -webkit-transform: translateX(-6px) rotate(1.2deg);
+                transform: translateX(-6px) rotate(1.2deg);
+            }
+        }
     </style>
     <title>Account</title>
 </head>
@@ -45,8 +110,8 @@
     </header>
     <main class=" container-fluid ">
         <div class="row justify-content-center">
-            <div class="col-5" id="reg" style="display: none;">
-                <form class="login-form">
+            <div class="col-5 " id="reg" style="display: none;">
+                <form class="login-form ">
                     <p class="h1 text-light">Login</p>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label fs-4 text-light">Email address</label>
@@ -160,13 +225,12 @@
                     <button type="button" id="save" class="btn btn-primary fs-4 text-light mt-1" onclick="save()">Save</button>
                     <button type="button" id="logOutButton" class="btn btn-primary fs-4 text-light mt-1" onclick="logout()">Logout</button>
                 </div>
-
                 <div class="container-fluid">
                     <p class="h1 text-light">Posts</p>
                     <div class="row mb-3">
                         <p class="h2 text-light">Post Example</p>
-                        <div class="col-6">
-                            <div class="card text-white bg-dark mb-3 me-1 " style="max-width: 18rem;">
+                        <div class="col-6 ">
+                            <div class="card text-white bg-dark mb-3 me-1 " id="blackPostExmpl" style="max-width: 18rem;">
                                 <div class="card-header h1 border-light" id="postHeaderBlack" contenteditable="true">Header</div>
                                 <div class="card-body">
                                     <h5 class="card-title h2" id="postDateBlack" contenteditable="true">Date</h5>
@@ -187,7 +251,7 @@
                             <button type="button" id="addPost" class="btn btn-primary fs-4 text-light mt-1" onclick="addPostBlack()">Add Post</button>
                         </div>
                         <div class="col-6">
-                            <div class="card text-dark bg-light mb-3 me-1 " style="max-width: 18rem;">
+                            <div class="card text-dark bg-light mb-3 me-1 " id="whitePostExmpl" style="max-width: 18rem;">
                                 <div class="card-header h1 border-dark " id="postHeaderWhite" contenteditable="true">Header</div>
                                 <div class="card-body">
                                     <h5 class="card-title h2" id="postDateWhite" contenteditable="true">Date</h5>
